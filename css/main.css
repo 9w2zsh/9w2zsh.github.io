@@ -257,7 +257,7 @@ nav ul li a:hover:before {
 .overlay {
     position: absolute;
     z-index: 999;
-    background: white;
+    background: grey;
     width: 100%;
     height: 100%;
     animation: reveal 1s ease-in forwards;
