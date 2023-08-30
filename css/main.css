@@ -178,7 +178,7 @@ p.details {
 
 .card1 {
     grid-area: left;
-    background-image: url('../images/clothing1.jpg');
+    background-image: url('../img/maintenance.jpg');
     position: relative;
 }
 .card1:before {
