@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/blog.css" />
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <div class="wrapper">
+      <header>
+        <h1>9w2zsh</h1>
+        <h2>ASL <-> YSF Configuration</h2>
+        <nav>
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="radio.html">Radio</a></li>
+            <li><a href="#">Contacts</a></li>
+          </ul>
+        </nav>
+      </header>
+      <!-- content -->
+      <main>
+        <div class="container">
+          <a
+            href="https://dvswitch.groups.io/g/allstarlink/topic/is_it_possible_to_link_ysf_to/87126486?p="
+            >Link to forum</a
+          ><br />
+          <div class="subhead">
+            <h3>N4IRS</h3>
+            <p>
+              I misunderstood your first post, it looked like you were trying to
+              use muiti TX ports. So, your audio mixing will be done via analog
+              (AllStar) Each mode will need it's own node number. Can be a
+              private node. <br />
+              <br />
+              It will look like this:<br />
+              YSF <-> ASL node 1232<br />
+              DMR <-> ASL node 1233<br />
+              D-Star <-> ASL node 1234<br />
+              <br />
+              You will link nodes 1232, 1233, 1234 That will bridge the 3
+              digital modes.<br />
+              You will have a fourth node, probably public (4xxx) that you will
+              connect to one of the digital nodes. That will bring all 3 digital
+              modes into your public AllStar node. This will allow you to
+              disconnect your AllStar node from the digital modes.<br />
+              <br />
+              You will need one instance of MMDVM Bridge.<br />
+              You will need one instance of ircDDBGateway.<br />
+              You will 3 instances of Analog_Bridge. This can be done with one
+              copy of the Analog_Bridge binary
+              (/opt/Analog_Bridge/Analog_Bridge) and 3 different versions of
+              Analog_Bridge.ini Each version will be configure for the target
+              digital mode. 3 different versions of the systemd control
+              files.<br />
+              You will need 2 instances of MD380-emu. This can be done with one
+              copy of the md380-emu binary (/opt/md380-emu/md380-emu) and 2
+              different versions of the systemd control files. Since you are
+              running D-Star you WILL need hardware vocoder (DV3000).<br />
+              <br />
+              The concept is the same for each mode. Only the port numbers
+              change between Analog_Bridge and MMDVM_Bridge. Each Analog_Bridge
+              config file will be configure to point it's AMBE_Audio TX and RX
+              ports at the proper port defined in DVSwitch.ini<br />
+              Build each mode one at a time. Test it. I suggest you turn off any
+              other instances of Analog_Bridge during testing. <br />
+            </p>
+          </div>
+          <div class="subhead">
+            <h3>YSF to ASL sample configuration</h3>
+            <p>
+              MMDVM_Bridge.ini<br />
+              <br />
+              [System Fusion]<br />
+              Enable=1<br />
+              <br />
+              [System Fusion Network]<br />
+              Enable=1<br />
+              LocalAddress=0<br />
+              LocalPort=3200<br />
+              GatewayAddress= point to your YSF Reflector<br />
+              GatewayPort=42000 <<< YSF Reflector port<br />
+              Debug=0<br />
+              <br />
+              <br />
+              DVSwitch.ini<br />
+              <br />
+              [YSF]<br />
+              address = 127.0.0.1 <br />
+              txPort = 35100 <br />
+              rxPort = 35103 <br />
+              txWidePort = 35105<br />
+              fallbackID = your ID <br />
+              exportTG = 9 <br />
+              slot = 2 <br />
+              RemotePort = 6073<br />
+              <br />
+              Analog_Bridge.ini<br />
+              <br />
+              ; General vocoder setup information<br />
+              decoderFallBack = true <br />
+              useEmulator = true <br />
+              emulatorAddress = 127.0.0.1:2470 <br />
+              <br />
+              pcmPort = 2222<br />
+              <br />
+              <br />
+              [AMBE_AUDIO]<br />
+              address = 127.0.0.1 <br />
+              txPort = 35103 <br />
+              rxPort = 35100 <br />
+              ambeMode = YSF <br />
+              minTxTimeMS = 2500 <br />
+              <br />
+              <br />
+              gatewayDmrId = your id <br />
+              repeaterID = your id plus 2 <br />
+              txTg = 9 <br />
+              txTs = 2 <br />
+              colorCode = 1 <br />
+              <br />
+              <br />
+              [USRP]<br />
+              address = 127.0.0.1 <br />
+              txPort = 32001 <br />
+              rxPort = 34001 <br />
+              usrpAudio = AUDIO_USE_GAIN <br />
+              usrpGain = 3.10 <br />
+              usrpAGC = -20,10,100 <br />
+              tlvAudio = AUDIO_USE_GAIN <br />
+              tlvGain = 0.50 <br />
+              <br />
+              ALLSTARLINK Private Node<br />
+              <br />
+              rpt.conf<br />
+              <br />
+              [1999]<br />
+              rxchannel = USRP/127.0.0.1:34001:32001 ; Use the USRP channel
+              driver. Must be enabled in modules.conf<br />
+              ; 127.0.0.1 = IP of the target application<br />
+              ; 34001 = UDP port the target application is listening on<br />
+              ; 32001 = UDP port ASL is listening on<br />
+              <br />
+              duplex = 0 ; 0 = Half duplex with no telemetry tones or hang time.
+              Ah, but Allison STILL talks!<br />
+              <br />
+              hangtime = 0 ; squelch tail hang time 0<br />
+              althangtime = 0 ; longer squelch tail hang time 0<br />
+              <br />
+              holdofftelem = 1 ; Hold off all telemetry when signal is present
+              on receiver or from connected nodes<br />
+              ; except when an ID needs to be done and there is a signal coming
+              from a connected node.<br />
+              <br />
+              telemdefault = 0 ; 0 = telemetry output off. Don't send Allison to
+              DMR !!!!!!!!!!!!!!!!! Trust me.<br />
+              <br />
+              telemdynamic = 0 ; 0 = disallow users to change the local
+              telemetry setting with a COP command,<br />
+              <br />
+              linktolink = no ; disables forcing physical half-duplex operation
+              of main repeater while<br />
+              ; still keeping half-duplex semantics (optional)<br />
+              <br />
+              nounkeyct = 1 ; Set to a 1 to eliminate courtesy tones and
+              associated delays.<br />
+              <br />
+              totime = 180000 ; transmit time-out time (in ms) (optional,
+              default 3 minutes 180000 ms)<br />
+              <br />
+              ; idrecording = |ie ; id recording or morse string see
+              http://ohnosec.org/drupal/node/87<br />
+              ; idtalkover = |ie ; Talkover ID (optional) default is none see
+              http://ohnosec.org/drupal/node/129<br />
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
+    <hr />
+  </body>
+</html>
