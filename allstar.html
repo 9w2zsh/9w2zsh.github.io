@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/blog.css" />
+    <style>
+        body {font-family: "Tahoma", sans-serif;}
+        
+        table { 
+            text-align: center;
+            border-collapse: collapse;
+            table-layout: fixed; 
+        }
+        
+        td, th {
+            border: 1px solid black;
+            font-size: 12px;
+            vertical-align: top;
+            padding: 6px 12px;
+        }
+        
+        .tableleft {
+            text-align: left;
+            font-size: 12px;
+            border: black;
+        }
+        
+        ul.tab {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+        
+        /* Float the list items side by side */
+        ul.tab li {float: left;}
+        
+        /* Style the links inside the list items */
+        ul.tab li a {
+            display: inline-block;
+            color: black;
+            text-align: center;
+            padding: 7px 8px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 12px;
+        }
+        
+        /* Change background color of links on hover */
+        ul.tab li a:hover {
+            background-color: #ddd;
+        }
+        
+        /* Create an active/current tablink class */
+        ul.tab li a:focus, .active {
+            background-color: #ccc;
+        }
+        
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+            font-size: 12px;
+        }
+        
+        /* text color red */
+        .redtext {
+            color: red;
+            font-size: 12px;
+            text-align: left;
+        }
+        
+        /* text color blue */
+        .bluetext {
+            color: blue;
+            font-size: 12px;
+            text-align: left;
+        }
+        
+        pre code {
+            background-color: #eee;
+            border: 1px solid #999;
+            display: block;
+            padding: 10px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <div class="wrapper">
+      <header>
+        <h1>9w2zsh</h1>
+        <h2>AllStar Page</h2>
+        <nav>
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="radio.html">Radio</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+          </ul>
+        </nav>
+      </header>
+      <!-- content -->
+      <main>
+        <div class="container">
+          <div class="subhead">
+            <h3>YSF</h3>
+            <p>
+                AllStarLink is a network of Amateur Radio repeaters, remote base stations and hot spots accessible to each other via Voice over Internet Protocol
+            </p>
+          </div>
+        </div>
+        <hr />
+        <div class="container">
+          <div class="subhead">
+            <h3>YSF to ASL sample configuration</h3>
+            <p>
+                <ul class="tab">
+                    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Blog')" id="defaultOpen">Links</a></li>
+                    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'YSF Reflector')">YSF Reflector</a></li>
+                    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'FT70D')">FT70D</a></li>
+                    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'DMR')">DMR</a></li>
+                    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Pi-star')">Pi-star</a></li>
+                    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Hardware')">Hardware</a></li>
+                </ul>
+                
+            <div id="Blog" class="tabcontent">
+                <p><h5>14Apr</h5>
+                    I can't remember when I installed this OpenWebsdr, but seems like I've tried them. sigh<br>
+                    <a href="https://github.com/jketterl/openwebrx/wiki/Usage" target="_blank" rel="noopener">OpenWebRX</a><br>
+                    <a href="http://9m2zak.blogspot.com/2018/11/malaysia-airband-freq-tower-freq-update.html" target="_blank" rel="noopener">Malaysia Airband</a><br>
+                    https://www.youtube.com/watch?v=khaConKsuPk - Configuring OpenWebRX<br>
+                    https://giters.com/novakmi85/codecserver-softmbe - configure OpenWebRX for DMR<br>
+                    http://zainalsh.dyndns.org:8073/#freq=433550000,mod=nfm,secondary_mod=packet,sql=-150 - zainalsh OpenWebRX<br>
+                    https://github.com/jketterl/openwebrx<br>
+                    https://www.youtube.com/watch?v=CuTxHFZStOc&t=819s
+                </p>
+                <hr>
+            </div>
+                
+            <div id="YSF Reflector" class="tabcontent">
+                <table class="tableleft">
+                    <tr>
+                        <td>
+                <a href="https://register.ysfreflector.de/" target="_blank" rel="noopener">Register YSF Reflector</a><br>
+                <a href="http://ysf.dmrnet.org/ysf/index.php" target="_blank" rel="noopener">Malaysia Net</a><br>
+                <a href="http://192.168.1.2" target="_blank" rel="noopener">MY-YSFREFZS</a><br>
+                <a href="http://ysf.rgvham.net/#" target="_blank" rel="noopener">KC5MOL - Texas South TG3148 YSF Reflector</a><br>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div id="FT70D" class="tabcontent">
+                <b>List of FT70D links</b>
+                <ol type="a">
+                    <li><a href="https://www.yaesu.com/jp/en/wires-x/id/active_room.php" target="_blank" rel="noopener">WIRES-X Active Room</a></li>
+                    <li><a href="https://static.dxengineering.com/global/images/instructions/ysu-ft-70dr_hg.pdf" target="_blank" rel="noopener">FT70D Operating manual</a></li>
+                    <li><a href="https://static.dxengineering.com/global/images/instructions/ysu-ft-70dr_gz.pdf" target="_blank" rel="noopener">FT70D Adv manual</a></li>
+                    <li><a href="http://www.n8ukf.com/wmsf/index_htm_files/Yaesu%20FT-70D%20Cheat%20Sheet.pdf" target="_blank" rel="noopener">FT-70D Cheat Sheet</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=4EfA-fHF36o" target="_blank" rel="noopener">FT-70D Setup DTMF</a></li>
+                </ol> 
+            </div>
+            
+            <div id="DMR" class="tabcontent">
+                <b>List of DMR Talkgroups</b>
+                <ol type="a">
+                    <li>Malaysia Net</li>
+                    <li></li>
+                    <li></li>
+                </ol> 
+            </div>
+                
+            <div id="Pi-star" class="tabcontent">
+            <table class="tableleft">
+                <tr>
+                    <td>
+                        Blogspot
+                        <ol>
+                            <li><a href="http://pi-star.blogspot.com/">pi-star blogspot</a></li>
+                            <li><a href="https://amateurradionotes.com/pi-star-notes.htm#supportedradios">amateur radio notes</a></li>
+                            <li><a href="https://hackernoon.com/raspberry-pi-headless-install-462ccabd75d0">headless pi-star setup</a></li>
+                            <li><a href="https://www.thingiverse.com/thing:1810943/apps">pi casing 3d printer</a></li>
+                        </ol>
+                    </td>
+                    <td>Links
+                        <ol>
+                            <li><a href="https://learn.sparkfun.com/tutorials/headless-raspberry-pi-setup/wifi-with-dhcp" target="_blank" rel="noopener">RasPi headless setup</a></li>
+            <li><a href="https://www.raspberrypi-spy.co.uk/2017/04/manually-setting-up-pi-wifi-using-wpa_supplicant-conf/" target="_blank" rel="noopener">wpa_supplicant.conf file1</a></li>
+            <li><a href="https://linuxhint.com/rasperberry_pi_wifi_wpa_supplicant/" target="_blank" rel="noopener">wpa_supplicant.conf 2</a></li>
+                        </ol>
+                        <a href="https://www.qsl.net/on5mu/Download/1-Playing_with_Pi-Star.pdf">Playing with Pi-star</a>
+                    </td>
+                    
+                </tr>
+            </table>
+            <p><h3>Change timezone</h3>
+            Using the command line, you can use <b>sudo dpkg-reconfigure tzdata.</b><br>
+            Open a terminal window by going to Applications>Accessories>Terminal.<br>
+            sudo dpkg-reconfigure tzdata.<br>
+            Follow the directions in the terminal.<br>
+            The timezone info is saved in /etc/timezone - which can be edited or used below.<br>
+            Source: <a href="https://help.ubuntu.com/community/UbuntuTime">UbuntuTime</a>
+            </p>
+            <hr>
+            <p><h3>Calibration Tool</h3>
+            9 Feb 2024<br>
+            <img src="https://i.imgur.com/XGwH8RV.jpeg" width="300" height="200"><br>
+            <p>Pi-star has included Calibration tool in the 20240208 update. However, at the time this note was written, the connectivity was not stable. It will intermittently connected or drop for no particular reason.<br> </p>
+            </p>
+            <hr>
+            </div>
+            
+            <div id="Hardware" class="tabcontent">
+                <b>Pi Zero</b>
+                <ol type="a">
+                    <li><a href="https://my.cytron.io/p-raspberry-pi-zero-wh-basic-bundles?r=1&gad=1&gclid=Cj0KCQjw4NujBhC5ARIsAF4Iv6dArGvrwrubzrMj3RurB4i4dPC49L3N3hOcHUjS0DyJ0Z0VN3ipXVYaAirLEALw_wcB" target="_blank" rel="noopener">Raspberry Pi Zero WH and Bundles</a></li>
+                    <li>Bluetooth adapter for radio<br>
+                        <a href="https://shopee.com.my/product/163966596/6713043948?gad_source=1&gclid=EAIaIQobChMIiLCP06-thAMVlsg8Ah1oOAcvEAQYAiABEgI_kfD_BwE"> 3.5mm AUX Jack Stereo Audio Wireless Receiver Bluetooth A2DP Dongle Adapter</a><br>
+                        <a href="https://www.lazada.com.my/products/usb-bluetooth-a2dp-dongle-adapter-bluetooth-music-audio-receiver-wireless-stereo-35mm-jack-for-car-aux-speaker-i109773104-s112450461.html?from_gmc=1&exlaz=d_1:mm_150050845_51350205_2010350205::12:20837577500!!!!!c!!112450461!128299079&gad_source=1&gclid=EAIaIQobChMIiLCP06-thAMVlsg8Ah1oOAcvEAQYBCABEgKTCvD_BwE">USB Bluetooth A2DP Dongle Adapter Bluetooth Music Audio Receiver Wireless Stereo 3.5mm Jack for Car Aux Speaker</a><br>
+                        <a href="//shopee.com.my/product/171385524/3235596840?gad_source=1&gclid=EAIaIQobChMIiLCP06-thAMVlsg8Ah1oOAcvEAQYASABEgKGq_D_BwE">Bluetooth A2DP Stereo Audio Transmitter Receiver Mini Wireless Bluetooth 5.0 Music Adapter For PC Car Bluetooth Speaker</a></li>
+                    <li></li>
+                </ol> 
+            </div>
+            
+            <script>
+            function openCity(evt, cityName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                document.getElementById(cityName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+            
+            // Get the element with id="defaultOpen" and click on it
+            document.getElementById("defaultOpen").click();
+            </script>
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
+    <hr />
+  </body>
+</html>

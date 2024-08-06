@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/blog.css" />
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <div class="wrapper">
+      <header>
+        <h1>9w2zsh</h1>
+        <h2>YSF Page</h2>
+        <nav>
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="radio.html">Radio</a></li>
+            <li><a href="#">Contacts</a></li>
+          </ul>
+        </nav>
+      </header>
+      <!-- content -->
+      <main>
+        <div class="container">
+          <div class="subhead">
+            <h3>Radio</h3>
+            <p>
+              I misunderstood your first post, it looked like you were trying to
+              use muiti TX ports. So, your audio mixing will be done via analog
+              (AllStar) Each mode will need it's own node number. Can be a
+              private node. <br />
+              <br />
+            </p>
+          </div>
+        </div>
+        <hr />
+        <div class="container">
+          <div class="subhead">
+            <h3>YSF to ASL sample configuration</h3>
+            <p>
+              MMDVM_Bridge.ini<br />
+              <br />
+              [System Fusion]<br />
+              Enable=1<br />
+              <br />
+              [System Fusion Network]<br />
+              Enable=1<br />
+              LocalAddress=0<br />
+              LocalPort=3200<br />
+              GatewayAddress= point to your YSF Reflector<br />
+              GatewayPort=42000 <<< YSF Reflector port<br />
+              Debug=0<br />
+              <br />
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
+    <hr />
+  </body>
+</html>
