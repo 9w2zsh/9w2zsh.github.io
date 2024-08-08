@@ -185,7 +185,7 @@ p.details {
     position: absolute;
     content: "";
     background: url('../img/maintenance.jpg') no-repeat;
-    width: 100%;
+    width: 150%;
     height: 100%;
     top: 20px;
     left: -30px;
