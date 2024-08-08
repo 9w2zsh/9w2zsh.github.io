@@ -178,6 +178,7 @@ p.details {
 
 .card1 {
     grid-area: left;
+    background-image: url('../img/0.jpg');
     position: relative;
 }
 .card1:before {
