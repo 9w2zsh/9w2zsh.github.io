@@ -131,7 +131,7 @@
         <hr />
         <div class="container">
           <div class="subhead">
-            <h3>AllStarLink</h3>
+            <h3>All about AllStarLink</h3>
             <p>
                 <ul class="tab">
                     <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Install')" id="defaultOpen">Install</a></li>
@@ -139,6 +139,7 @@
                     <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Supermon2')">Supermon2</a></li>
                     <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'DVSwitch')">DVSwitch</a></li>
                     <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Alltune')">Alltune</a></li>
+                    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Note')">Note</a></li>
                     <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Hardware')">Hardware</a></li>
                 </ul>
                 
@@ -216,6 +217,19 @@
             <hr>
             </div>
             
+            <div id="Note" class="tabcontent">
+                <p>
+                <b>Files permission</b><br>
+                <p>
+                After copy or ftp file from windows and cannot save to favorites, run this command:<br>
+                > chmod 644 favorites.file</p>
+                <p>
+                To check the file permission, run this command:<br>
+                > stat -c "%a %n" favorites.ini</p>
+                <hr>
+                </p>
+            </div>
+
             <div id="Hardware" class="tabcontent">
                 <b>Pi Zero</b>
                 <ol type="a">
