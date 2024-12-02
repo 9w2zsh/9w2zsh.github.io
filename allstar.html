@@ -104,14 +104,14 @@
         <h2>AllStarLink Page</h2>
         <nav>
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="radio.html">Radio</a></li>
             <li><a href="contacts.html">Contacts</a></li>
           </ul>
           <br />
           <ul>
-            <li><a href="allstar.html" class="active">AllStarLink</a></li>
+            <li><a href="allstar.html">AllStarLink</a></li>
             <li><a href="dmr.html">DMR</a></li>
             <li><a href="ysf.html">YSF</a></li>
             <li><a href="hardware.html">Hardware</a></li>
@@ -131,52 +131,61 @@
         <hr />
         <div class="container">
           <div class="subhead">
-            <h3>AllStarLink</h3>
+            <h3>YSF to ASL sample configuration</h3>
             <p>
                 <ul class="tab">
-                    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Install')" id="defaultOpen">Install</a></li>
-                    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Supermon')">Supermon</a></li>
-                    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Supermon2')">Supermon2</a></li>
-                    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'DVSwitch')">DVSwitch</a></li>
-                    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Alltune')">Alltune</a></li>
+                    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Blog')" id="defaultOpen">Links</a></li>
+                    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'YSF Reflector')">YSF Reflector</a></li>
+                    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'FT70D')">FT70D</a></li>
+                    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'DMR')">DMR</a></li>
+                    <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Pi-star')">Pi-star</a></li>
                     <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Hardware')">Hardware</a></li>
                 </ul>
                 
-            <div id="Install" class="tabcontent">
-                <p><h4>Install AllStarLink node</h4>
-                    Download from 
+            <div id="Blog" class="tabcontent">
+                <p><h5>2 Dec 2024</h5>
+                    After copy or FTP the favorite.ini file from windows to node and cannot save on Alltune, run command below<br>
+                    > chmod 644 favorites.ini<br>
+                    To check back, run this command<br>
+                    > stat -c "%a %n" <the filename><br>
                 </p>
                 <hr>
             </div>
                 
-            <div id="Supermon" class="tabcontent">
+            <div id="YSF Reflector" class="tabcontent">
                 <table class="tableleft">
                     <tr>
                         <td>
-                            Update Supermon
+                <a href="https://register.ysfreflector.de/" target="_blank" rel="noopener">Register YSF Reflector</a><br>
+                <a href="http://ysf.dmrnet.org/ysf/index.php" target="_blank" rel="noopener">Malaysia Net</a><br>
+                <a href="http://192.168.1.2" target="_blank" rel="noopener">MY-YSFREFZS</a><br>
+                <a href="http://ysf.rgvham.net/#" target="_blank" rel="noopener">KC5MOL - Texas South TG3148 YSF Reflector</a><br>
                         </td>
                     </tr>
                 </table>
             </div>
             
-            <div id="Supermon2" class="tabcontent">
+            <div id="FT70D" class="tabcontent">
                 <b>List of FT70D links</b>
                 <ol type="a">
-                    step 1
-                    step 2
+                    <li><a href="https://www.yaesu.com/jp/en/wires-x/id/active_room.php" target="_blank" rel="noopener">WIRES-X Active Room</a></li>
+                    <li><a href="https://static.dxengineering.com/global/images/instructions/ysu-ft-70dr_hg.pdf" target="_blank" rel="noopener">FT70D Operating manual</a></li>
+                    <li><a href="https://static.dxengineering.com/global/images/instructions/ysu-ft-70dr_gz.pdf" target="_blank" rel="noopener">FT70D Adv manual</a></li>
+                    <li><a href="http://www.n8ukf.com/wmsf/index_htm_files/Yaesu%20FT-70D%20Cheat%20Sheet.pdf" target="_blank" rel="noopener">FT-70D Cheat Sheet</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=4EfA-fHF36o" target="_blank" rel="noopener">FT-70D Setup DTMF</a></li>
                 </ol> 
             </div>
             
-            <div id="DVSwitch" class="tabcontent">
+            <div id="DMR" class="tabcontent">
                 <b>List of DMR Talkgroups</b>
                 <ol type="a">
-                    <li>step1</li>
-                    <li>step2</li>
+                    <li>Malaysia Net</li>
+                    <li></li>
                     <li></li>
                 </ol> 
             </div>
                 
-            <div id="Alltune" class="tabcontent">
+            <div id="Pi-star" class="tabcontent">
             <table class="tableleft">
                 <tr>
                     <td>
