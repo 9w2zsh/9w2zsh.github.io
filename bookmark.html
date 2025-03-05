@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmark Keeper</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f0f0f0;
+      }
+
+      .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      input[type="text"] {
+        width: 30%;
+        padding: 8px;
+        margin-right: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      select {
+        padding: 8px;
+        margin-right: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 25%;
+      }
+
+      button {
+        padding: 8px 15px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 5px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      .bookmark-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .category-section {
+        margin-bottom: 20px;
+      }
+
+      .category-header {
+        background-color: #f5f5f5;
+        padding: 10px;
+        margin: 10px 0 5px 0;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .category-header:hover {
+        background-color: #e0e0e0;
+      }
+
+      .toggle-icon {
+        font-size: 0.8em;
+      }
+
+      .bookmark-items {
+        transition: max-height 0.3s ease-out;
+        overflow: hidden;
+      }
+
+      .bookmark-items.collapsed {
+        max-height: 0;
+      }
+
+      .bookmark-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .bookmark-info {
+        flex-grow: 1;
+        margin-right: 10px;
+      }
+
+      .edit-btn {
+        background-color: #2196f3;
+      }
+
+      .edit-btn:hover {
+        background-color: #1976d2;
+      }
+
+      .delete-btn {
+        background-color: #f44336;
+      }
+
+      .delete-btn:hover {
+        background-color: #da190b;
+      }
+
+      .edit-form {
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+
+      .edit-form input[type="text"] {
+        width: 25%;
+      }
+
+      .edit-form select {
+        width: 20%;
+      }
+
+      a {
+        color: #0066cc;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Bookmark Keeper</h1>
+      <div class="form-group">
+        <input type="text" id="bookmarkName" placeholder="Bookmark Name" />
+        <input type="text" id="bookmarkUrl" placeholder="URL (https://...)" />
+        <select id="bookmarkCategory">
+          <option value="Entertainment">Entertainment</option>
+          <option value="General">General</option>
+          <option value="News">News</option>
+          <option value="Other">Other</option>
+          <option value="Radio">Radio</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Work">Work</option>
+        </select>
+        <button onclick="addBookmark()">Add Bookmark</button>
+      </div>
+      <ul id="bookmarkList" class="bookmark-list"></ul>
+    </div>
+
+    <script>
+      // Array to store bookmarks
+      let bookmarks = [];
+      let editingId = null;
+      let collapsedCategories = new Set();
+
+      // Load bookmarks from localStorage when page loads
+      window.onload = function () {
+        const storedBookmarks = localStorage.getItem("bookmarks");
+        if (storedBookmarks) {
+          bookmarks = JSON.parse(storedBookmarks);
+          displayBookmarks();
+        }
+      };
+
+      // Function to add a new bookmark
+      function addBookmark() {
+        const nameInput = document.getElementById("bookmarkName");
+        const urlInput = document.getElementById("bookmarkUrl");
+        const categorySelect = document.getElementById("bookmarkCategory");
+        const name = nameInput.value.trim();
+        let url = urlInput.value.trim();
+        const category = categorySelect.value;
+
+        // Basic validation
+        if (name === "" || url === "") {
+          alert("Please enter both name and URL");
+          return;
+        }
+
+        // Add https:// if no protocol is specified
+        if (!url.startsWith("http://") && !url.startsWith("https://")) {
+          url = "https://" + url;
+        }
+
+        const bookmark = {
+          id: Date.now(),
+          name: name,
+          url: url,
+          category: category,
+        };
+
+        bookmarks.push(bookmark);
+        saveBookmarks();
+        displayBookmarks();
+
+        // Clear inputs
+        nameInput.value = "";
+        urlInput.value = "";
+        categorySelect.value = "Entertainment"; // Default to first alphabetical category
+      }
+
+      // Function to display all bookmarks grouped by category
+      function displayBookmarks() {
+        const bookmarkList = document.getElementById("bookmarkList");
+        bookmarkList.innerHTML = "";
+
+        // Get unique categories and sort alphabetically
+        const categories = [
+          ...new Set(bookmarks.map((b) => b.category)),
+        ].sort();
+
+        // Sort bookmarks alphabetically within each category
+        const sortedBookmarks = [...bookmarks].sort((a, b) =>
+          a.name.localeCompare(b.name)
+        );
+
+        categories.forEach((category) => {
+          const categoryBookmarks = sortedBookmarks.filter(
+            (b) => b.category === category
+          );
+          if (categoryBookmarks.length > 0) {
+            // Create category section
+            const categorySection = document.createElement("div");
+            categorySection.className = "category-section";
+
+            // Create category header
+            const header = document.createElement("div");
+            header.className = "category-header";
+            header.innerHTML = `
+                        ${category}
+                        <span class="toggle-icon">${
+                          collapsedCategories.has(category) ? "+" : "-"
+                        }</span>
+                    `;
+            header.onclick = () => toggleCategory(category);
+            categorySection.appendChild(header);
+
+            // Create bookmark items container
+            const itemsContainer = document.createElement("div");
+            itemsContainer.className = `bookmark-items ${
+              collapsedCategories.has(category) ? "collapsed" : ""
+            }`;
+
+            // Add bookmarks for this category
+            categoryBookmarks.forEach((bookmark) => {
+              const li = document.createElement("li");
+              li.className = "bookmark-item";
+
+              if (editingId === bookmark.id) {
+                // Show edit form
+                li.innerHTML = `
+                                <div class="edit-form">
+                                    <input type="text" value="${
+                                      bookmark.name
+                                    }" id="editName-${bookmark.id}">
+                                    <input type="text" value="${
+                                      bookmark.url
+                                    }" id="editUrl-${bookmark.id}">
+                                  <select id="editCategory-${bookmark.id}">
+                                        <option value="Entertainment" ${
+                                          bookmark.category === "Entertainment"
+                                            ? "selected"
+                                            : ""
+                                        }>Entertainment</option>
+                                        <option value="General" ${
+                                          bookmark.category === "General"
+                                            ? "selected"
+                                            : ""
+                                        }>General</option>
+                                        <option value="News" ${
+                                          bookmark.category === "News"
+                                            ? "selected"
+                                            : ""
+                                        }>News</option>
+                                        <option value="Other" ${
+                                          bookmark.category === "Other"
+                                            ? "selected"
+                                            : ""
+                                        }>Other</option>
+                                        <option value="Shopping" ${
+                                          bookmark.category === "Shopping"
+                                            ? "selected"
+                                            : ""
+                                        }>Shopping</option>
+                                        <option value="Work" ${
+                                          bookmark.category === "Work"
+                                            ? "selected"
+                                            : ""
+                                        }>Work</option>
+                                    </select>
+                                    <button onclick="saveEdit(${
+                                      bookmark.id
+                                    })">Save</button>
+                                    <button onclick="cancelEdit()">Cancel</button>
+                                </div>
+                            `;
+              } else {
+                // Show normal view
+                li.innerHTML = `
+                                <div class="bookmark-info">
+                                    <a href="${bookmark.url}" target="_blank">${bookmark.name}</a>
+                                </div>
+                                <button class="edit-btn" onclick="editBookmark(${bookmark.id})">Edit</button>
+                                <button class="delete-btn" onclick="deleteBookmark(${bookmark.id})">Delete</button>
+                            `;
+              }
+              itemsContainer.appendChild(li);
+            });
+
+            categorySection.appendChild(itemsContainer);
+            bookmarkList.appendChild(categorySection);
+          }
+        });
+      }
+
+      // Function to toggle category collapse/expand
+      function toggleCategory(category) {
+        if (collapsedCategories.has(category)) {
+          collapsedCategories.delete(category);
+        } else {
+          collapsedCategories.add(category);
+        }
+        displayBookmarks();
+      }
+
+      // Function to start editing a bookmark
+      function editBookmark(id) {
+        editingId = id;
+        displayBookmarks();
+      }
+
+      // Function to save edited bookmark
+      function saveEdit(id) {
+        const name = document.getElementById(`editName-${id}`).value.trim();
+        let url = document.getElementById(`editUrl-${id}`).value.trim();
+        const category = document.getElementById(`editCategory-${id}`).value;
+
+        if (name === "" || url === "") {
+          alert("Please enter both name and URL");
+          return;
+        }
+
+        if (!url.startsWith("http://") && !url.startsWith("https://")) {
+          url = "https://" + url;
+        }
+
+        bookmarks = bookmarks.map((bookmark) => {
+          if (bookmark.id === id) {
+            return { ...bookmark, name, url, category };
+          }
+          return bookmark;
+        });
+
+        editingId = null;
+        saveBookmarks();
+        displayBookmarks();
+      }
+
+      // Function to cancel editing
+      function cancelEdit() {
+        editingId = null;
+        displayBookmarks();
+      }
+
+      // Function to delete a bookmark
+      function deleteBookmark(id) {
+        bookmarks = bookmarks.filter((bookmark) => bookmark.id !== id);
+        editingId = null;
+        saveBookmarks();
+        displayBookmarks();
+      }
+
+      // Function to save bookmarks to localStorage
+      function saveBookmarks() {
+        localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+      }
+
+      // Add bookmark when Enter key is pressed in add form
+      document.addEventListener("keypress", function (e) {
+        if (e.key === "Enter" && editingId === null) {
+          addBookmark();
+        } else if (e.key === "Enter" && editingId !== null) {
+          saveEdit(editingId);
+        }
+      });
+    </script>
+  </body>
+</html>
