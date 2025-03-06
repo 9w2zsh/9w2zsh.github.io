@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="ms">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kutu 4.0 Kini Kembali</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+      }
+
+      body {
+        color: #ffffff;
+        background: #0a0a0a;
+        line-height: 1.6;
+      }
+
+      /* Utility Classes */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 15px 40px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.3rem;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.3s;
+      }
+
+      .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px #00ddeb;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+            135deg,
+            rgba(30, 30, 30, 0.7),
+            rgba(10, 10, 10, 0.7)
+          ),
+          url("https://arleta.site/interactivelink/231/IMG_3014.jpeg") no-repeat
+            center center/cover;
+        color: #ffffff;
+        text-align: center;
+        padding: 100px 20px;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 2px solid #00ddeb;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle,
+          rgba(0, 221, 235, 0.2),
+          transparent
+        );
+        animation: pulse 10s infinite;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        text-transform: uppercase;
+        text-shadow: 0 0 10px #00ddeb, 0 0 20px #d946ef;
+        margin-bottom: 20px;
+        animation: fadeIn 1.5s ease-in;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        color: #e0e0e0;
+        margin-bottom: 25px;
+        position: relative;
+        z-index: 1;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* Features Section */
+      .features {
+        padding: 60px 0;
+        text-align: center;
+      }
+
+      .features h2 {
+        font-size: 2.5rem;
+        color: #00ddeb;
+        text-shadow: 0 0 10px #00ddeb;
+        margin-bottom: 40px;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+      }
+
+      .feature-card {
+        background: #1e1e1e;
+        padding: 25px;
+        border-radius: 10px;
+        border: 1px solid #d946ef;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 20px #d946ef;
+      }
+
+      .feature-card h3 {
+        color: #00ddeb;
+        margin-bottom: 10px;
+      }
+
+      .feature-card p {
+        color: #b0b0b0;
+      }
+
+      /* How It Works Section */
+      .how-it-works {
+        padding: 60px 0;
+        background: #141414;
+        text-align: center;
+      }
+
+      .how-it-works h2 {
+        font-size: 2.5rem;
+        color: #00ddeb;
+        text-shadow: 0 0 10px #00ddeb;
+        margin-bottom: 40px;
+      }
+
+      .steps {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .step {
+        flex: 1;
+        min-width: 220px;
+        padding: 20px;
+        background: #1e1e1e;
+        border-radius: 10px;
+        border: 1px solid #00ddeb;
+      }
+
+      .step h3 {
+        color: #d946ef;
+        margin-bottom: 10px;
+      }
+
+      .step p {
+        color: #b0b0b0;
+      }
+
+      /* Testimonials Section */
+      .testimonials {
+        padding: 60px 0;
+        text-align: center;
+      }
+
+      .testimonials h2 {
+        font-size: 2.5rem;
+        color: #00ddeb;
+        text-shadow: 0 0 10px #00ddeb;
+        margin-bottom: 40px;
+      }
+
+      .testimonial-slider {
+        max-width: 700px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .testimonial {
+        display: none;
+        padding: 20px;
+        background: #1e1e1e;
+        border-radius: 10px;
+        border: 1px solid #d946ef;
+        box-shadow: 0 0 10px #d946ef;
+      }
+
+      .testimonial.active {
+        display: block;
+        animation: slideIn 0.5s ease;
+      }
+
+      .testimonial p {
+        color: #e0e0e0;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 80px 0;
+        background: linear-gradient(135deg, #d946ef, #00ddeb);
+        text-align: center;
+      }
+
+      .cta-section h2 {
+        font-size: 2.5rem;
+        color: #ffffff;
+        text-shadow: 0 0 10px #ffffff;
+        margin-bottom: 30px;
+      }
+
+      .btn-primary {
+        background: #00ddeb;
+        color: #0a0a0a;
+        box-shadow: 0 0 15px #00ddeb;
+      }
+
+      /* Footer */
+      footer {
+        background: #1e1e1e;
+        color: #b0b0b0;
+        padding: 30px 0;
+        text-align: center;
+        border-top: 2px solid #d946ef;
+      }
+
+      footer a {
+        color: #00ddeb;
+        text-decoration: none;
+        margin: 0 10px;
+        transition: text-shadow 0.3s;
+      }
+
+      footer a:hover {
+        text-shadow: 0 0 10px #00ddeb;
+      }
+
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        background: #1e1e1e;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #d946ef;
+        max-width: 600px;
+        max-height: 80vh;
+        overflow-y: auto;
+        position: relative;
+        box-shadow: 0 0 20px #d946ef;
+      }
+
+      .modal-content h3 {
+        color: #00ddeb;
+        margin-bottom: 15px;
+        text-shadow: 0 0 10px #00ddeb;
+      }
+
+      .modal-content h4 {
+        color: #d946ef;
+        margin: 15px 0 10px;
+      }
+
+      .modal-content p {
+        color: #e0e0e0;
+        margin-bottom: 10px;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #00ddeb;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: text-shadow 0.3s;
+      }
+
+      .close-btn:hover {
+        text-shadow: 0 0 10px #00ddeb;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+        .hero p {
+          font-size: 1rem;
+        }
+        .btn {
+          padding: 12px 30px;
+          font-size: 1.1rem;
+        }
+        .cta-section h2 {
+          font-size: 1.8rem;
+        }
+        .features h2,
+        .how-it-works h2,
+        .testimonials h2 {
+          font-size: 2rem;
+        }
+        .modal-content {
+          max-width: 90%;
+        }
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://interactivelink.co/api/pgm-page-monitor.js"></script>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>Kutu 4.0 Kini Kembali</h1>
+        <p>Simpanan cerdas dengan teknologi masa depan untuk kekayaan anda.</p>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container">
+        <h2>Kenapa Kutu 4.0?</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3>Keselamatan Masa Depan</h3>
+            <p>Platform digital dengan enkripsi canggih.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Fleksibel & Automatik</h3>
+            <p>Atur simpanan anda dengan satu klik.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Komuniti Digital</h3>
+            <p>Ahli terhubung dalam rangkaian selamat.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Ganjaran Neo</h3>
+            <p>Bonus futuristik untuk rujukan anda.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+      <div class="container">
+        <h2>Cara Sertai Kutu 4.0</h2>
+        <div class="steps">
+          <div class="step">
+            <h3>1. Daftar</h3>
+            <p>Akaun anda siap dalam sekelip mata.</p>
+          </div>
+          <div class="step">
+            <h3>2. Pilih Kumpulan</h3>
+            <p>Sistem cari kumpulan secara pintar.</p>
+          </div>
+          <div class="step">
+            <h3>3. Sumbang</h3>
+            <p>Transaksi automatik tanpa ribet.</p>
+          </div>
+          <div class="step">
+            <h3>4. Terima</h3>
+            <p>Wang masuk terus ke dompet digital.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <div class="container">
+        <h2>Apa Kata Pengguna</h2>
+        <div class="testimonial-slider">
+          <div class="testimonial active">
+            <p>"Kutu 4.0 bawa saya ke era baru simpanan!"</p>
+            <p><strong>Siti, 28</strong></p>
+          </div>
+          <div class="testimonial">
+            <p>"Sistem canggih, tiada lagi keraguan."</p>
+            <p><strong>Ahmad, 35</strong></p>
+          </div>
+          <div class="testimonial">
+            <p>"Bonus rujukan macam dari masa depan!"</p>
+            <p><strong>Lina, 24</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Sertai Kutu 4.0 Sekarang!</h2>
+        <a
+          href="https://wa.me/60197953851?text=Saya%20berminat%20untuk%20menyertai%20permainan%20Kutu%204.0%2C%20boleh%20saya%20masukkan%20nama%20saya%2C%20tuan%3F"
+          class="btn btn-primary"
+          target="_blank"
+          >Daftar Sekarang</a
+        >
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>Copyright by Haszi</p>
+        <p>
+          <a href="#" id="terms-link">Terma & Syarat</a> |
+          <a href="#" id="privacy-link">Polisi & Privasi</a> |
+          <a href="#" id="faq-link">Soalan Lazim</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Terms Modal -->
+    <div id="terms-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" id="close-terms-modal">×</span>
+        <h3>Terma & Syarat Kutu 4.0</h3>
+        <h4>Penyertaan & Komitmen</h4>
+        <p>
+          Setiap peserta mesti bersetuju dengan terma dan syarat sebelum
+          menyertai.
+        </p>
+        <p>
+          Peserta perlu komited untuk membayar jumlah kutu yang ditetapkan
+          setiap bulan/minggu sehingga tamat giliran semua peserta.
+        </p>
+        <h4>Jumlah & Bayaran</h4>
+        <p>
+          Jumlah sumbangan setiap peserta adalah RM200 sebulan/minggu, dan akan
+          dibayar kepada ketua kutu sebelum tarikh yang dipersetujui.
+        </p>
+        <p>
+          Bayaran hendaklah dibuat tepat pada waktunya bagi mengelakkan
+          kelewatan giliran peserta lain.
+        </p>
+        <h4>Giliran & Pengeluaran</h4>
+        <p>
+          Giliran penerima wang kutu akan ditentukan secara undian atau mengikut
+          persetujuan bersama.
+        </p>
+        <p>
+          Sekiranya peserta yang sudah menerima wang gagal meneruskan
+          pembayaran, tindakan akan diambil seperti mencari pengganti atau
+          menyelesaikannya secara dalaman.
+        </p>
+        <h4>Kelewatan & Penalti</h4>
+        <p>
+          Jika peserta gagal membuat bayaran dalam tempoh yang dipersetujui,
+          peserta lain berhak membuat keputusan sama ada peserta tersebut akan
+          dikeluarkan atau dikenakan denda.
+        </p>
+        <p>
+          Sekiranya peserta menarik diri sebelum tamat giliran, peserta tersebut
+          bertanggungjawab mencari pengganti atau memaklumkan lebih awal kepada
+          ketua kutu.
+        </p>
+        <h4>Tanggungjawab Ketua Kutu</h4>
+        <p>
+          Ketua kutu bertanggungjawab menguruskan kutu dengan telus dan
+          mengemaskini maklumat pembayaran.
+        </p>
+        <p>
+          Ketua kutu tidak bertanggungjawab terhadap kegagalan peserta membayar
+          atau masalah kewangan individu peserta.
+        </p>
+        <h4>Persetujuan</h4>
+        <p>
+          Dengan menyertai kutu ini, semua peserta bersetuju dengan syarat yang
+          telah ditetapkan dan akan bertanggungjawab sepenuhnya sepanjang tempoh
+          permainan kutu.
+        </p>
+      </div>
+    </div>
+
+    <!-- Privacy Modal -->
+    <div id="privacy-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" id="close-privacy-modal">×</span>
+        <h3>Polisi & Privasi Main Undi</h3>
+        <h4>1. Pengumpulan Maklumat</h4>
+        <p>
+          Kami hanya mengumpulkan maklumat yang diperlukan untuk pengurusan
+          permainan undi, termasuk nama, nombor telefon, dan jumlah sumbangan
+          peserta.
+        </p>
+        <p>
+          Maklumat ini akan digunakan secara dalaman dan tidak akan dikongsi
+          dengan pihak ketiga tanpa kebenaran peserta.
+        </p>
+        <h4>2. Kerahsiaan Maklumat Peserta</h4>
+        <p>
+          Semua maklumat peserta adalah sulit dan hanya boleh diakses oleh pihak
+          yang menguruskan permainan undi.
+        </p>
+        <p>
+          Identiti pemenang undi hanya akan diumumkan kepada peserta dalam
+          kumpulan dan tidak akan dikongsi kepada umum tanpa persetujuan.
+        </p>
+        <h4>3. Penggunaan Maklumat</h4>
+        <p>
+          Maklumat yang diberikan oleh peserta digunakan untuk tujuan berikut:
+        </p>
+        <p>- Pengurusan senarai peserta dan giliran undian.</p>
+        <p>- Pemberitahuan mengenai keputusan undian.</p>
+        <p>- Pengesahan pembayaran dan transaksi berkaitan.</p>
+        <h4>4. Keselamatan Maklumat</h4>
+        <p>
+          Kami mengambil langkah-langkah keselamatan bagi memastikan maklumat
+          peserta tidak disalahgunakan atau diakses oleh pihak yang tidak
+          bertanggungjawab.
+        </p>
+        <p>
+          Maklumat yang dikumpul akan disimpan dalam sistem yang selamat dan
+          hanya boleh diakses oleh pihak pengurusan permainan undi.
+        </p>
+        <h4>5. Hak Peserta</h4>
+        <p>
+          Peserta berhak meminta maklumat mereka dikemas kini atau dipadam
+          selepas permainan undi tamat.
+        </p>
+        <p>
+          Sebarang pertanyaan mengenai privasi dan penggunaan maklumat boleh
+          diajukan kepada pihak pengurusan permainan undi.
+        </p>
+        <h4>6. Perubahan Polisi</h4>
+        <p>
+          Polisi ini boleh dikemas kini dari semasa ke semasa bergantung kepada
+          keperluan permainan undi dan persetujuan semua peserta.
+        </p>
+        <h4>7. Persetujuan Peserta</h4>
+        <p>
+          Dengan menyertai permainan undi ini, peserta bersetuju dengan dasar
+          privasi yang dinyatakan di atas dan memahami cara maklumat mereka
+          digunakan.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ Modal -->
+    <div id="faq-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" id="close-faq-modal">×</span>
+        <h3>Soalan Lazim (FAQ) Main Undi/Kutu</h3>
+        <h4>1. Apa itu permainan undi/kutu?</h4>
+        <p>
+          Permainan undi/kutu ialah satu sistem simpanan berkumpulan di mana
+          setiap peserta menyumbang jumlah wang yang ditetapkan dalam satu
+          tempoh tertentu. Setiap pusingan, seorang peserta akan menerima jumlah
+          kutu yang dikumpulkan mengikut giliran yang telah dipersetujui atau
+          melalui undian.
+        </p>
+        <h4>2. Bagaimana cara menyertai?</h4>
+        <p>
+          Untuk menyertai, peserta perlu mendaftar dengan ketua kutu/undi dan
+          bersetuju dengan terma serta syarat yang ditetapkan. Bayaran pertama
+          perlu dibuat sebelum permainan bermula.
+        </p>
+        <h4>3. Bagaimana giliran pemenang undi/kutu ditentukan?</h4>
+        <p>Giliran penerima boleh ditentukan melalui dua kaedah:</p>
+        <p>
+          - Main Kutu: Giliran ditetapkan lebih awal berdasarkan persetujuan
+          semua peserta.
+        </p>
+        <p>
+          - Main Undi: Giliran penerima ditentukan secara rawak melalui cabutan
+          undi setiap pusingan.
+        </p>
+        <h4>4. Apa yang berlaku jika peserta lewat membayar?</h4>
+        <p>
+          Peserta yang lewat membayar boleh dikenakan penalti, dikeluarkan
+          daripada kumpulan, atau perlu mencari pengganti. Ini bergantung kepada
+          syarat yang telah dipersetujui oleh semua peserta.
+        </p>
+        <h4>5. Bolehkah saya menarik diri sebelum permainan tamat?</h4>
+        <p>
+          Peserta yang ingin menarik diri perlu memaklumkan lebih awal dan
+          mencari pengganti. Jika tiada pengganti, peserta bertanggungjawab
+          untuk memastikan bayaran mereka tetap diteruskan sehingga tamat.
+        </p>
+        <h4>6. Siapa yang bertanggungjawab menguruskan permainan ini?</h4>
+        <p>
+          Ketua kutu/undi bertanggungjawab menguruskan pembayaran, menyimpan
+          rekod, dan memastikan semua peserta menerima giliran mereka dengan
+          adil dan telus.
+        </p>
+        <h4>7. Adakah maklumat peserta dirahsiakan?</h4>
+        <p>
+          Ya, semua maklumat peserta adalah sulit dan hanya digunakan untuk
+          tujuan pengurusan permainan ini. Ia tidak akan dikongsi dengan pihak
+          luar tanpa kebenaran peserta.
+        </p>
+        <h4>8. Apa jaminan saya akan menerima wang saya?</h4>
+        <p>
+          Permainan ini bergantung pada kepercayaan dan komitmen semua peserta.
+          Oleh itu, peserta digalakkan untuk menyertai kumpulan yang dipercayai
+          dan memastikan semua transaksi direkod dengan baik.
+        </p>
+        <h4>9. Bagaimana cara pembayaran dibuat?</h4>
+        <p>
+          Bayaran boleh dibuat secara tunai atau melalui transaksi bank mengikut
+          persetujuan bersama. Semua pembayaran harus direkodkan sebagai bukti.
+        </p>
+        <h4>10. Bolehkah permainan ini dilakukan secara dalam talian?</h4>
+        <p>
+          Ya, permainan boleh diuruskan melalui aplikasi seperti WhatsApp,
+          Telegram, atau platform kutu digital yang lebih telus dan selamat.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // Testimonial Slider
+      const testimonials = document.querySelectorAll(".testimonial");
+      let current = 0;
+
+      function showNextTestimonial() {
+        testimonials[current].classList.remove("active");
+        current = (current + 1) % testimonials.length;
+        testimonials[current].classList.add("active");
+      }
+
+      setInterval(showNextTestimonial, 4000); // Tukar setiap 4 saat
+
+      // Terms Modal Functionality
+      const termsLink = document.getElementById("terms-link");
+      const termsModal = document.getElementById("terms-modal");
+      const closeTermsModal = document.getElementById("close-terms-modal");
+
+      termsLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        termsModal.style.display = "flex";
+      });
+
+      closeTermsModal.addEventListener("click", () => {
+        termsModal.style.display = "none";
+      });
+
+      termsModal.addEventListener("click", (e) => {
+        if (e.target === termsModal) {
+          termsModal.style.display = "none";
+        }
+      });
+
+      // Privacy Modal Functionality
+      const privacyLink = document.getElementById("privacy-link");
+      const privacyModal = document.getElementById("privacy-modal");
+      const closePrivacyModal = document.getElementById("close-privacy-modal");
+
+      privacyLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        privacyModal.style.display = "flex";
+      });
+
+      closePrivacyModal.addEventListener("click", () => {
+        privacyModal.style.display = "none";
+      });
+
+      privacyModal.addEventListener("click", (e) => {
+        if (e.target === privacyModal) {
+          privacyModal.style.display = "none";
+        }
+      });
+
+      // FAQ Modal Functionality
+      const faqLink = document.getElementById("faq-link");
+      const faqModal = document.getElementById("faq-modal");
+      const closeFaqModal = document.getElementById("close-faq-modal");
+
+      faqLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        faqModal.style.display = "flex";
+      });
+
+      closeFaqModal.addEventListener("click", () => {
+        faqModal.style.display = "none";
+      });
+
+      faqModal.addEventListener("click", (e) => {
+        if (e.target === faqModal) {
+          faqModal.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

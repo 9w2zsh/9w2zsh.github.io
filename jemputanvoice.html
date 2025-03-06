@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ms">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kad Jemputan Kahwin</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: #f5e1a4;
+        background-image: url("https://arleta.site/interactivelink/6/file-JJ67VZVx9KVxTDWnifCEqx-1.webp");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 500px;
+        margin: 80px auto;
+        background: rgba(255, 250, 240, 0.9); /* Semi-transparent background */
+        border-radius: 10px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        text-align: center;
+        border: 5px solid #d4af37;
+        display: none; /* Tersembunyi dahulu */
+      }
+
+      h1 {
+        font-family: "Great Vibes", cursive;
+        font-size: 32px;
+        color: #9b6a28;
+      }
+
+      h2 {
+        font-family: "Great Vibes", cursive;
+        font-size: 28px;
+        color: #8b5e3b;
+      }
+
+      p {
+        font-size: 18px;
+        color: #5c3d1e;
+        margin: 10px 0;
+      }
+
+      .button {
+        background: linear-gradient(to right, #d4af37, #b8860b);
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: bold;
+      }
+
+      .button:hover {
+        background: linear-gradient(to right, #b8860b, #8b5e3b);
+      }
+
+      #status {
+        font-size: 18px;
+        color: #5c3d1e;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+
+      .footer {
+        font-size: 14px;
+        margin-top: 20px;
+        color: #8b5e3b;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Kad Jemputan Kahwin</h1>
+    <p>
+      <strong>Sebut "Selamat pengantin baru"</strong> untuk melihat jemputan
+    </p>
+
+    <div>
+      <button class="button" onclick="startRecognition()">
+        Aktifkan Mikrofon
+      </button>
+    </div>
+
+    <p id="status">Menunggu arahan suara...</p>
+
+    <div class="container" id="invitation">
+      <h2>Jemputan Perkahwinan</h2>
+      <p>
+        Dengan penuh kesyukuran, kami menjemput anda ke majlis perkahwinan kami.
+      </p>
+      <p><strong>🗓 Tarikh:</strong> 15 Mac 2025</p>
+      <p><strong>⏰ Masa:</strong> 11:00 AM - 4:00 PM</p>
+      <p><strong>📍 Lokasi:</strong> Dewan Perdana Felda, Kuala Lumpur</p>
+      <p>Semoga kehadiran anda memeriahkan majlis kami!</p>
+      <p class="footer">
+        "Cinta sejati adalah rahmat, dan perkahwinan adalah penyatuan dua hati
+        dalam keberkatan."
+      </p>
+    </div>
+
+    <script>
+      function startRecognition() {
+        const recognition = new (window.SpeechRecognition ||
+          window.webkitSpeechRecognition)();
+        recognition.lang = "ms-MY"; // Bahasa Melayu
+
+        recognition.start();
+        document.getElementById("status").innerText =
+          "Mendengar... Sila sebut 'Selamat pengantin baru'.";
+
+        recognition.onresult = function (event) {
+          const speechResult = event.results[0][0].transcript.toLowerCase();
+          console.log("Anda menyebut: " + speechResult);
+
+          if (speechResult.includes("selamat pengantin baru")) {
+            document.getElementById("invitation").style.display = "block";
+            document.getElementById("status").innerText =
+              "Jemputan telah dibuka!";
+          } else {
+            document.getElementById("status").innerText =
+              "Sila cuba lagi dan sebut 'Selamat pengantin baru'.";
+          }
+        };
+
+        recognition.onerror = function (event) {
+          document.getElementById("status").innerText = "Ralat: " + event.error;
+        };
+      }
+    </script>
+  </body>
+</html>

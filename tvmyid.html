@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ms">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TV Live - Malaysia & Indonesia</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        background: linear-gradient(to right, #ff6a00, #ee0979);
+        color: white;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background: rgba(0, 0, 0, 0.8);
+        padding: 15px;
+        font-size: 24px;
+        font-weight: bold;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      #video-container {
+        margin: 20px auto;
+        max-width: 800px;
+      }
+
+      video {
+        width: 100%;
+        height: 450px;
+        background: black;
+        border-radius: 10px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .country-section {
+        margin: 20px auto;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        max-width: 600px;
+      }
+
+      h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+
+      select {
+        width: 90%;
+        padding: 12px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        background: rgba(255, 255, 255, 0.9);
+        color: #333;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      select:hover {
+        background: white;
+      }
+
+      select:focus {
+        box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
+      }
+    </style>
+    <script src="https://interactivelink.co/api/pgm-page-monitor.js"></script>
+  </head>
+  <body>
+    <header>TV Live - Malaysia & Indonesia</header>
+
+    <main>
+      <div id="video-container">
+        <video id="tvPlayer" controls></video>
+      </div>
+
+      <div id="channel-list">
+        <p>Memuatkan saluran...</p>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+      const m3uUrls = {
+        MY: "https://iptv-org.github.io/iptv/countries/my.m3u",
+        ID: "https://iptv-org.github.io/iptv/countries/id.m3u",
+      };
+
+      async function loadM3U(countryCode) {
+        try {
+          const response = await fetch(m3uUrls[countryCode]);
+          const data = await response.text();
+          return parseM3U(data, countryCode);
+        } catch (error) {
+          return [];
+        }
+      }
+
+      function parseM3U(data, countryCode) {
+        const lines = data.split("\n");
+        const channels = [];
+        let currentChannel = null;
+
+        lines.forEach((line) => {
+          line = line.trim();
+
+          if (line.startsWith("#EXTINF")) {
+            const nameMatch = line.match(/,(.+)/);
+            const name = nameMatch ? nameMatch[1] : "Saluran Tanpa Nama";
+            currentChannel = { name, country: countryCode };
+          } else if (line.startsWith("http") && line.includes(".m3u8")) {
+            if (currentChannel) {
+              currentChannel.url = line;
+              channels.push(currentChannel);
+              currentChannel = null;
+            }
+          }
+        });
+
+        return channels;
+      }
+
+      async function loadAllChannels() {
+        const channels = { MY: [], ID: [] };
+
+        for (const country of Object.keys(m3uUrls)) {
+          channels[country] = await loadM3U(country);
+        }
+
+        displayChannels(channels);
+      }
+
+      function displayChannels(channels) {
+        const channelList = document.getElementById("channel-list");
+        channelList.innerHTML = "";
+
+        if (!channels["MY"].length && !channels["ID"].length) {
+          channelList.innerHTML = "<p>Tiada saluran tersedia.</p>";
+          return;
+        }
+
+        Object.keys(channels).forEach((country) => {
+          if (!channels[country].length) return;
+
+          const section = document.createElement("div");
+          section.classList.add("country-section");
+
+          const title = document.createElement("h2");
+          title.textContent = country === "MY" ? "Malaysia" : "Indonesia";
+          section.appendChild(title);
+
+          const select = document.createElement("select");
+          select.onchange = function () {
+            playTV(this.value);
+          };
+
+          const defaultOption = document.createElement("option");
+          defaultOption.textContent = "Pilih Saluran...";
+          defaultOption.value = "";
+          select.appendChild(defaultOption);
+
+          channels[country].forEach((channel) => {
+            const option = document.createElement("option");
+            option.textContent = channel.name;
+            option.value = channel.url;
+            select.appendChild(option);
+          });
+
+          section.appendChild(select);
+          channelList.appendChild(section);
+        });
+
+        // Mainkan saluran pertama secara automatik jika ada
+        const firstCountry = Object.keys(channels).find(
+          (c) => channels[c].length
+        );
+        if (firstCountry && channels[firstCountry][0]) {
+          playTV(channels[firstCountry][0].url);
+        }
+      }
+
+      function playTV(url) {
+        if (!url) return;
+
+        let video = document.getElementById("tvPlayer");
+
+        if (Hls.isSupported()) {
+          let hls = new Hls();
+          hls.loadSource(url);
+          hls.attachMedia(video);
+          video.play();
+        } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+          video.src = url;
+          video.play();
+        } else {
+          alert("Pelayar anda tidak menyokong siaran langsung ini.");
+        }
+      }
+
+      loadAllChannels();
+    </script>
+  </body>
+</html>

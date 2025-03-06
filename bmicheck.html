@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Ramadhan Challenge</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2rem;
+        color: #1a73e8;
+        margin-bottom: 10px;
+      }
+
+      p.subtitle {
+        text-align: center;
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .section {
+        margin: 30px 0;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        color: #444;
+        margin-bottom: 15px;
+      }
+
+      /* Form Input */
+      .form-container {
+        display: grid;
+        gap: 15px;
+        padding: 20px;
+        background: #f9f9f9;
+        border-radius: 8px;
+      }
+
+      label {
+        font-weight: bold;
+        color: #555;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #218838;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 10px;
+      }
+
+      #resetButton {
+        background-color: #dc3545;
+      }
+
+      #resetButton:hover {
+        background-color: #c82333;
+      }
+
+      /* Tabel */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-size: 0.9rem;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: center;
+        border: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #f8f9fa;
+        font-weight: bold;
+        color: #333;
+      }
+
+      /* Grafik */
+      .chart-container {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 20px;
+        overflow-x: auto; /* Membolehkan scroll mendatar di mobile */
+      }
+
+      canvas {
+        width: 100% !important;
+        height: 300px !important; /* Ketinggian asas untuk PC */
+      }
+
+      /* Ranking */
+      #ranking {
+        margin-top: 20px;
+      }
+
+      #rankingList {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      #rankingList li {
+        padding: 8px 0;
+        font-size: 1rem;
+        color: #444;
+      }
+
+      /* Responsif */
+      @media (max-width: 768px) {
+        .container {
+          padding: 15px;
+        }
+
+        h1 {
+          font-size: 1.5rem;
+        }
+
+        p.subtitle {
+          font-size: 0.9rem;
+        }
+
+        h2 {
+          font-size: 1.2rem;
+        }
+
+        .form-container {
+          grid-template-columns: 1fr;
+          padding: 15px;
+        }
+
+        input,
+        select,
+        button {
+          font-size: 0.9rem;
+        }
+
+        .button-group {
+          flex-direction: column;
+        }
+
+        table,
+        th,
+        td {
+          font-size: 0.8rem;
+          padding: 8px;
+        }
+
+        .chart-container {
+          max-width: 100%;
+        }
+
+        canvas {
+          height: 200px !important; /* Ketinggian dikurangkan untuk mobile */
+          min-width: 600px; /* Pastikan grafik boleh discroll mendatar */
+        }
+      }
+
+      @media (max-width: 480px) {
+        table {
+          font-size: 0.7rem;
+        }
+
+        th,
+        td {
+          padding: 6px;
+        }
+
+        canvas {
+          height: 150px !important; /* Ketinggian lebih kecil untuk skrin sangat kecil */
+          min-width: 500px; /* Membolehkan scroll mendatar */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>BMI Ramadhan Challenge</h1>
+      <p class="subtitle">
+        Target Kejuaraan ialah yang paling hampir center BMI=21.75
+      </p>
+
+      <!-- Form Input -->
+      <section class="section">
+        <h2>Tambah Data</h2>
+        <div class="form-container">
+          <div>
+            <label>Pilih Peserta:</label>
+            <select id="userSelect">
+              <option value="Aznan">Aznan</option>
+              <option value="Faisal">Faisal</option>
+              <option value="Nije">Nije</option>
+              <option value="Nik">Nik</option>
+            </select>
+          </div>
+          <div>
+            <label>Tinggi (cm):</label>
+            <input type="number" id="height" placeholder="Masukkan tinggi" />
+          </div>
+          <div>
+            <label>Hari Ramadan:</label>
+            <input type="number" id="day" min="1" max="30" placeholder="1-30" />
+          </div>
+          <div>
+            <label>Berat (kg):</label>
+            <input type="number" id="weight" placeholder="Masukkan berat" />
+          </div>
+          <div class="button-group">
+            <button onclick="addWeight()">Tambah Data</button>
+            <button id="resetButton" onclick="resetData()">Reset Data</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grafik dan Tabel -->
+      <section class="section">
+        <h2>Grafik Berat Badan</h2>
+        <div class="chart-container">
+          <canvas id="weightChart"></canvas>
+        </div>
+        <h2>Grafik BMI</h2>
+        <div class="chart-container">
+          <canvas id="bmiChart"></canvas>
+        </div>
+        <div id="ranking">
+          <h2>Ranking Terkini</h2>
+          <ul id="rankingList"></ul>
+        </div>
+        <h2>Data Peserta</h2>
+        <table id="weightTable">
+          <thead>
+            <tr>
+              <th>Hari</th>
+              <th>Aznan (kg/BMI)</th>
+              <th>Faisal (kg/BMI)</th>
+              <th>Nije (kg/BMI)</th>
+              <th>Nik (kg/BMI)</th>
+            </tr>
+          </thead>
+          <tbody id="weightTableBody"></tbody>
+        </table>
+      </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Inisialisasi data dengan nama peserta baru
+      let users = JSON.parse(localStorage.getItem("ramadanChallengeData")) || [
+        { name: "Aznan", height: null, weightData: [] },
+        { name: "Faisal", height: null, weightData: [] },
+        { name: "Nije", height: null, weightData: [] },
+        { name: "Nik", height: null, weightData: [] },
+      ];
+      let weightChart = null;
+      let bmiChart = null;
+      const CENTER_BMI = 21.75;
+
+      // Fungsi untuk menghitung BMI
+      function calculateBMI(height, weight) {
+        const h = parseFloat(height) / 100;
+        const w = parseFloat(weight);
+        if (h && w) return (w / (h * h)).toFixed(2);
+        return null;
+      }
+
+      // Fungsi untuk menambah data
+      function addWeight() {
+        const userName = document.getElementById("userSelect").value;
+        const height = parseFloat(document.getElementById("height").value);
+        const day = parseInt(document.getElementById("day").value);
+        const weight = parseFloat(document.getElementById("weight").value);
+
+        if (day >= 1 && day <= 30 && weight && height) {
+          const user = users.find((u) => u.name === userName);
+          if (!user.height) user.height = height;
+          const existingDay = user.weightData.find((d) => d.day === day);
+          if (existingDay) existingDay.weight = weight;
+          else user.weightData.push({ day, weight });
+
+          user.weightData.sort((a, b) => a.day - b.day);
+          localStorage.setItem("ramadanChallengeData", JSON.stringify(users));
+
+          updateTable();
+          updateWeightChart();
+          updateBMIChart();
+          updateRanking();
+        } else {
+          alert("Masukkan semua data dengan valid!");
+        }
+      }
+
+      // Fungsi untuk reset data
+      function resetData() {
+        if (confirm("Adakah anda pasti ingin mengosongkan semua data?")) {
+          localStorage.clear();
+          users = [
+            { name: "Aznan", height: null, weightData: [] },
+            { name: "Faisal", height: null, weightData: [] },
+            { name: "Nije", height: null, weightData: [] },
+            { name: "Nik", height: null, weightData: [] },
+          ];
+          updateTable();
+          updateWeightChart();
+          updateBMIChart();
+          updateRanking();
+        }
+      }
+
+      // Fungsi untuk update tabel
+      function updateTable() {
+        const tableBody = document.getElementById("weightTableBody");
+        tableBody.innerHTML = "";
+        for (let day = 1; day <= 30; day++) {
+          const row = document.createElement("tr");
+          let cells = `<td>${day}</td>`;
+          users.forEach((user) => {
+            const data = user.weightData.find((d) => d.day === day);
+            const bmi =
+              data && user.height
+                ? calculateBMI(user.height, data.weight)
+                : "-";
+            cells += `<td>${data ? `${data.weight}/${bmi}` : "-"}</td>`;
+          });
+          row.innerHTML = cells;
+          tableBody.appendChild(row);
+        }
+      }
+
+      // Fungsi untuk update grafik berat badan
+      function updateWeightChart() {
+        const ctx = document.getElementById("weightChart").getContext("2d");
+        if (weightChart) weightChart.destroy();
+
+        const days = Array.from({ length: 30 }, (_, i) => `Hari ${i + 1}`);
+        const datasets = users.map((user) => ({
+          label: user.name,
+          data: days.map((day) => {
+            const d = user.weightData.find(
+              (w) => w.day === parseInt(day.split(" ")[1])
+            );
+            return d ? d.weight : null;
+          }),
+          borderColor:
+            user.name === "Aznan"
+              ? "#28a745"
+              : user.name === "Faisal"
+              ? "#007bff"
+              : user.name === "Nije"
+              ? "#ff5733"
+              : "#ffcc00",
+          fill: false,
+          tension: 0.1,
+        }));
+
+        weightChart = new Chart(ctx, {
+          type: "line",
+          data: { labels: days, datasets },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                beginAtZero: false,
+                title: { display: true, text: "Berat Badan (kg)" },
+                ticks: { font: { size: 12 } }, // Saiz fon lebih kecil di mobile
+              },
+              x: {
+                title: { display: true, text: "Hari Ramadan" },
+                ticks: {
+                  maxTicksLimit: 10, // Hadkan bilangan tick untuk kejelasan
+                  font: { size: 10 }, // Saiz fon lebih kecil di mobile
+                },
+              },
+            },
+            plugins: {
+              legend: {
+                labels: { font: { size: 12 } }, // Saiz fon legenda
+              },
+            },
+          },
+        });
+      }
+
+      // Fungsi untuk update grafik BMI
+      function updateBMIChart() {
+        const ctx = document.getElementById("bmiChart").getContext("2d");
+        if (bmiChart) bmiChart.destroy();
+
+        const days = Array.from({ length: 30 }, (_, i) => `Hari ${i + 1}`);
+        const datasets = [
+          ...users.map((user) => ({
+            label: user.name,
+            data: days.map((day) => {
+              const d = user.weightData.find(
+                (w) => w.day === parseInt(day.split(" ")[1])
+              );
+              return d && user.height
+                ? calculateBMI(user.height, d.weight)
+                : null;
+            }),
+            borderColor:
+              user.name === "Aznan"
+                ? "#28a745"
+                : user.name === "Faisal"
+                ? "#007bff"
+                : user.name === "Nije"
+                ? "#ff5733"
+                : "#ffcc00",
+            fill: false,
+            tension: 0.1,
+          })),
+          {
+            label: "Lower BMI (18.5)",
+            data: Array(30).fill(18.5),
+            borderColor: "#ff0000",
+            borderWidth: 2,
+            borderDash: [5, 5],
+            fill: false,
+            pointRadius: 0,
+          },
+          {
+            label: "Upper BMI (25)",
+            data: Array(30).fill(25),
+            borderColor: "#ff0000",
+            borderWidth: 2,
+            borderDash: [5, 5],
+            fill: false,
+            pointRadius: 0,
+          },
+        ];
+
+        bmiChart = new Chart(ctx, {
+          type: "line",
+          data: { labels: days, datasets },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                min: 15,
+                max: 30,
+                title: { display: true, text: "BMI" },
+                ticks: { font: { size: 12 } }, // Saiz fon lebih kecil di mobile
+              },
+              x: {
+                title: { display: true, text: "Hari Ramadan" },
+                ticks: {
+                  maxTicksLimit: 10, // Hadkan bilangan tick untuk kejelasan
+                  font: { size: 10 }, // Saiz fon lebih kecil di mobile
+                },
+              },
+            },
+            plugins: {
+              legend: {
+                labels: { font: { size: 12 } }, // Saiz fon legenda
+              },
+            },
+          },
+        });
+      }
+
+      // Fungsi untuk menghitung rata-rata BMI dan persentase kedekatan ke center BMI
+      function calculateRanking() {
+        const rankings = users.map((user) => {
+          const bmis = user.weightData
+            .map((d) => parseFloat(calculateBMI(user.height, d.weight)))
+            .filter((b) => b);
+          const avgBMI =
+            bmis.length > 0
+              ? bmis.reduce((a, b) => a + b, 0) / bmis.length
+              : null;
+          const distance = avgBMI ? Math.abs(avgBMI - CENTER_BMI) : Infinity;
+          const closenessPercentage = avgBMI
+            ? (1 - distance / CENTER_BMI) * 100
+            : 0;
+          return { name: user.name, avgBMI, closenessPercentage };
+        });
+        return rankings.sort(
+          (a, b) => b.closenessPercentage - a.closenessPercentage
+        );
+      }
+
+      // Fungsi untuk update peringkat
+      function updateRanking() {
+        const rankingList = document.getElementById("rankingList");
+        rankingList.innerHTML = "";
+        const rankings = calculateRanking();
+
+        rankings.forEach((rank, index) => {
+          const li = document.createElement("li");
+          const avgBMIText = rank.avgBMI
+            ? rank.avgBMI.toFixed(2)
+            : "Belum ada data";
+          li.textContent = `${index + 1}. ${
+            rank.name
+          }: BMI Rata-rata ${avgBMIText}, Kedekatan ${rank.closenessPercentage.toFixed(
+            2
+          )}%`;
+          rankingList.appendChild(li);
+        });
+      }
+
+      // Inisialisasi
+      window.onload = function () {
+        updateTable();
+        updateWeightChart();
+        updateBMIChart();
+        updateRanking();
+      };
+    </script>
+  </body>
+</html>
