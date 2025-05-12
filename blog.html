@@ -10,6 +10,44 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/blog.css" />
+    <style>
+      .editor {
+        margin: 20px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        display: none; /* Initially hidden */
+      }
+      .editor textarea {
+        width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-family: inherit;
+      }
+      .editor input[type="text"] {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-family: inherit;
+      }
+      .editor button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .editor button:hover {
+        background-color: #0056b3;
+      }
+    </style>
   </head>
   <body>
     <div class="overlay"></div>
@@ -26,275 +64,381 @@
           </ul>
         </nav>
       </header>
-      <!-- content -->
       <main>
-        <!-- copy this template and enter the blog content in the paragraph
-        <div class="container">
-          <div class="left-col">
-            <div class="subhead">
-              <h4>*DATE*</h4>
-              <p>
-                
-              </p>
-            </div>
-          </div>
-          <div class="right-col">
-            <div class="subhead">
-              <h4>8 Aug 2024</h4>
-              <p>
-                
-              </p>
-            </div>
-          </div>
+        <!-- Authentication -->
+        <div id="auth">
+          <h3>Authentication Required</h3>
+          <input type="password" id="authPassword" placeholder="Enter password" />
+          <button onclick="authenticate()">Login</button>
         </div>
-        <hr />
-        -->
-        <div class="container">
-          <div class="left-col">
-            <div class="subhead">
-              <h4>4 Dec 2024</h4>
-              <p>
-                I was talking to one of my friend 9W2KXK on radio. He was
-                sharing that he is using his laptop to QSO via DVswitch. Remind
-                me a story of one of the ham who travel a lot and he don't want
-                bring his ht and go through the hustle of checking it in and
-                what not. So he install software on his laptop and using a
-                dongle, he can QSO to anyone throughout the world. Amazing!
-              </p>
-            </div>
-          </div>
+
+        <!-- Blog Editor -->
+        <div class="editor" id="blogEditor">
+          <h3>Add a New Blog Post</h3>
+          <input type="text" id="blogTitle" placeholder="Enter blog title" />
+          <textarea id="blogContent" placeholder="Enter blog content"></textarea>
+          <input type="date" id="blogDate" />
+          <input type="file" id="blogImage" accept="image/*" />
+          <button onclick="addBlogPost()">Add Blog Post</button>
         </div>
-        <hr />
-        <div class="container">
-          <div class="left-col">
-            <div class="subhead">
-              <h4>3 Dec 2024</h4>
-              <p>
-                I was putting together Rapzhan 2.0 casing that I got. The casing
-                has small Allen type screws. I don't have Allen key to tight it
-                up. So I got to the point that I can screw to the nut but I
-                cannot tighten them up.
-              </p>
-              <p>
-                I was thinking to find a shop that has small allen key and ask
-                them to help me tighten up the screw. Maybe I have to pay them a
-                bit but that is much more faster than buying a new set of allen
-                key. So on my way to buy groceries during my lunch break, I stop
-                by the watch shop and I ask them to tighten it up for me. And
-                they did it for free!
-              </p>
+
+        <!-- Blog Posts -->
+        <div id="blogPosts">
+          <div class="container">
+            <div class="left-col">
+              <div class="subhead">
+                <h4>4 Dec 2024</h4>
+                <p>
+                  I was talking to one of my friend 9W2KXK on radio. He was
+                  sharing that he is using his laptop to QSO via DVswitch. Remind
+                  me a story of one of the ham who travel a lot and he don't want
+                  bring his ht and go through the hustle of checking it in and
+                  what not. So he install software on his laptop and using a
+                  dongle, he can QSO to anyone throughout the world. Amazing!
+                </p>
+              </div>
             </div>
           </div>
-          <div class="right-col">
-            <div class="subhead">
-              <h4>&nbsp;</h4>
-              <p>
-                <img src="img/rapzhan_casing.jpg" width="70%" />
-              </p>
+          <hr />
+          <div class="container">
+            <div class="left-col">
+              <div class="subhead">
+                <h4>3 Dec 2024</h4>
+                <p>
+                  I was putting together Rapzhan 2.0 casing that I got. The casing
+                  has small Allen type screws. I don't have Allen key to tight it
+                  up. So I got to the point that I can screw to the nut but I
+                  cannot tighten them up.
+                </p>
+                <p>
+                  I was thinking to find a shop that has small allen key and ask
+                  them to help me tighten up the screw. Maybe I have to pay them a
+                  bit but that is much more faster than buying a new set of allen
+                  key. So on my way to buy groceries during my lunch break, I stop
+                  by the watch shop and I ask them to tighten it up for me. And
+                  they did it for free!
+                </p>
+              </div>
+            </div>
+            <div class="right-col">
+              <div class="subhead">
+                <h4>&nbsp;</h4>
+                <p>
+                  <img src="img/rapzhan_casing.jpg" width="70%" />
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <hr />
-        <div class="container">
-          <div class="left-col">
-            <div class="subhead">
-              <h4>2 Dec 2024</h4>
-              <p>
-                Allstarlink node 60810 keep repeating "nine whiskey two" and
-                sometimes "nine whis". Time to restore the previous version of
-                rpt.conf before I make some changes to match what node 608110
-                has
-              </p>
-              <p>
-                Lucky that I've use git as my method to keep the version of what
-                I have done. Git will keep track of the changes of what I've
-                done and I can always go back to the previous version should I
-                make a mistake and fall back the the previous known working
-                version.
-              </p>
+          <hr />
+          <div class="container">
+            <div class="left-col">
+              <div class="subhead">
+                <h4>2 Dec 2024</h4>
+                <p>
+                  Allstarlink node 60810 keep repeating "nine whiskey two" and
+                  sometimes "nine whis". Time to restore the previous version of
+                  rpt.conf before I make some changes to match what node 608110
+                  has
+                </p>
+                <p>
+                  Lucky that I've use git as my method to keep the version of what
+                  I have done. Git will keep track of the changes of what I've
+                  done and I can always go back to the previous version should I
+                  make a mistake and fall back the the previous known working
+                  version.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <hr />
-        <div class="container">
-          <div class="left-col">
-            <div class="subhead">
-              <h4>11 Aug 2024</h4>
-              <p>
-                Receive the news that both my Pi0 broken! That confirms that the
-                Pi0 that I use for YSF was gone. More surprisingly, the other
-                ASL node that use for remote node was broken too!. I have no
-                idea what happen. Maybe power spike.
-              </p>
-              <p>
-                Suggestion for the solution will be to get another Pi3 that will
-                use the existing SRAN. Well, let see what happen.
-              </p>
+          <hr />
+          <div class="container">
+            <div class="left-col">
+              <div class="subhead">
+                <h4>11 Aug 2024</h4>
+                <p>
+                  Receive the news that both my Pi0 broken! That confirms that the
+                  Pi0 that I use for YSF was gone. More surprisingly, the other
+                  ASL node that use for remote node was broken too!. I have no
+                  idea what happen. Maybe power spike.
+                </p>
+                <p>
+                  Suggestion for the solution will be to get another Pi3 that will
+                  use the existing SRAN. Well, let see what happen.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <hr />
-        <div class="container">
-          <div class="left-col">
-            <div class="subhead">
-              <h4>8 Aug 2024</h4>
-              <p>
-                My shack has been a mess!<br />
-                I wanted to re-arrange them so it will be much more easier to
-                work my day job while still having access to all the
-                handy-talkie and rig.<br />
-              </p>
+          <hr />
+          <div class="container">
+            <div class="left-col">
+              <div class="subhead">
+                <h4>8 Aug 2024</h4>
+                <p>
+                  My shack has been a mess!<br />
+                  I wanted to re-arrange them so it will be much more easier to
+                  work my day job while still having access to all the
+                  handy-talkie and rig.<br />
+                </p>
+              </div>
+            </div>
+            <div class="right-col">
+              <div class="subhead">
+                <h4>&nbsp;</h4>
+                <p>
+                  <br />
+                </p>
+              </div>
             </div>
           </div>
-          <div class="right-col">
-            <div class="subhead">
-              <h4>&nbsp;</h4>
-              <p>
-                <br />
-              </p>
+          <hr />
+          <div class="container">
+            <div class="left-col">
+              <div class="subhead">
+                <h4>18 Feb 2024</h4>
+                <p>
+                  I heard one of my close friend, 9M2IBR (Cikgu Ibrahim), my son's
+                  high school teacher, talked about something-Star. Curious, I
+                  quickly text him and ask if he is setting up DStar. He said,
+                  no.. its AllStar.
+                </p>
+                <p>
+                  I always into trying something new and I said
+                  <i>"I am in and how do I start"</i>. Happen to be this is one of
+                  the mode that I wanted to try using SHARI. I have never ever
+                  think about getting myself a digital radio. I have couple of
+                  analog radio and I think that will be cool if I can use them.
+                  However I have to put that thought aside because it was during
+                  Covid-19 and they don't have stock at that time. Futhermore, the
+                  shipping from US to Malaysia is a bit expensive<br />
+                </p>
+                <p>So the journey begins..</p>
+                <p>
+                  Only 3 items needed to setup a AllStar link node.<br />
+                  <li>Raspberry Pi</li>
+                  <li>Sound interface</li>
+                  <li>Radio transmitter</li>
+                </p>
+              </div>
+            </div>
+            <div class="right-col">
+              <div class="subhead">
+                <h4>&nbsp;</h4>
+                <p>
+                  It was my lucky day. Happen to be Cikgu has some spares sound
+                  interface card that he design himself and he can solder them to
+                  a Baofeng BF-888s radio for me. While waiting for the items
+                  arrived, I've downloaded the image from hamvoip.org and prepare
+                  the SD card for Raspberry Pi. You need some familiarity with
+                  Linux to install and get the node working
+                </p>
+                <p>
+                  One of the unique capability about AllStarLink is I can dial and
+                  connect to a node using DTMF. I always wanted to learn how to
+                  make use of DTMF that normally available on HT. Coupled with
+                  DVSwitch server on the same Raspberry Pi, I can be connected to
+                  a DMR Talkgroup and then connect the private node to the Public
+                  node and suddenly from AllStar node, I can connect to a DMR
+                  Talkgroup. Same goes to YSF, P25 or NXDN.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <hr />
-        <div class="container">
-          <div class="left-col">
-            <div class="subhead">
-              <h4>18 Feb 2024</h4>
-              <p>
-                I heard one of my close friend, 9M2IBR (Cikgu Ibrahim), my son's
-                high school teacher, talked about something-Star. Curious, I
-                quickly text him and ask if he is setting up DStar. He said,
-                no.. its AllStar.
-              </p>
-              <p>
-                I always into trying something new and I said
-                <i>"I am in and how do I start"</i>. Happen to be this is one of
-                the mode that I wanted to try using SHARI. I have never ever
-                think about getting myself a digital radio. I have couple of
-                analog radio and I think that will be cool if I can use them.
-                However I have to put that thought aside because it was during
-                Covid-19 and they don't have stock at that time. Futhermore, the
-                shipping from US to Malaysia is a bit expensive<br />
-              </p>
-              <p>So the journey begins..</p>
-              <p>
-                Only 3 items needed to setup a AllStar link node.<br />
-                <li>Raspberry Pi</li>
-                <li>Sound interface</li>
-                <li>Radio transmitter</li>
-              </p>
+          <hr />
+          <div class="container">
+            <div class="left-col">
+              <div class="subhead">
+                <h4>9 Feb 2024</h4>
+                <img
+                  src="https://i.imgur.com/XGwH8RV.jpeg"
+                  alt="Calibration graph"
+                  width="300"
+                  height="200"
+                /><br />
+              </div>
+            </div>
+            <div class="right-col">
+              <div class="subhead">
+                <h4>&nbsp;</h4>
+                <p>
+                  Pi-star has included Calibration tool in the 20240208 update.
+                  However, at the time this note was written, the connectivity was
+                  not stable. It will intermittently connected or drop for no
+                  particular reason.<br />
+                </p>
+              </div>
             </div>
           </div>
-          <div class="right-col">
-            <div class="subhead">
-              <h4>&nbsp;</h4>
-              <p>
-                It was my lucky day. Happen to be Cikgu has some spares sound
-                interface card that he design himself and he can solder them to
-                a Baofeng BF-888s radio for me. While waiting for the items
-                arrived, I've downloaded the image from hamvoip.org and prepare
-                the SD card for Raspberry Pi. You need some familiarity with
-                Linux to install and get the node working
-              </p>
-              <p>
-                One of the unique capability about AllStarLink is I can dial and
-                connect to a node using DTMF. I always wanted to learn how to
-                make use of DTMF that normally available on HT. Coupled with
-                DVSwitch server on the same Raspberry Pi, I can be connected to
-                a DMR Talkgroup and then connect the private node to the Public
-                node and suddenly from AllStar node, I can connect to a DMR
-                Talkgroup. Same goes to YSF, P25 or NXDN.
-              </p>
+          <hr />
+          <div class="container">
+            <div class="left-col">
+              <div class="subhead">
+                <h4>4 Sep 2023</h4>
+                <p>
+                  Going back to 1993, where I started to have an interest in
+                  amateur radio after watching one of my colleagues where I work
+                  at playing with his two-way radio. And that was when the
+                  Highland Tower at Bukit Antarabangsa collapse on 11 December
+                  1993.
+                </p>
+                <p>
+                  I got to see in real life how the amateur radio operator
+                  provides the communication support during the transport of the
+                  victim from the site to the hospital and my colleague was there.
+                  He was allowed to participate due to his capability in
+                  communication.
+                </p>
+                <p>
+                  It was not until 2007, after I moved to other company, that I've
+                  decided to take the exam called RAE (Radio Amatuer Examination)
+                  so that I will also become one of the amateur radio operator. I
+                  was thinking this is only a hobby and didn't put much time on
+                  it. On the exam day, I met a couple of colleague and they asked
+                  me what type of rig (radio equipment) that I use and which
+                  simplex channel I normally hang out. I look baffled since I
+                  never use those jargon.
+                </p>
+                <p>
+                  In the exam hall, I saw people comes equiped with pencil, eraser
+                  and calculator. I have no clue what do we need the calcultor
+                  for. I only have pencil and eraser with me. I make use of the
+                  full 3 hours of the provided time to answer 100 question. Going
+                  back and forth from page to page. Checking the translation page
+                  to ensure that I selected the right answer.
+                </p>
+              </div>
             </div>
-          </div>
-        </div>
-        <hr />
-        <div class="container">
-          <div class="left-col">
-            <div class="subhead">
-              <h4>9 Feb 2024</h4>
+            <div class="right-col">
+              Decal 9W2ZSH done by 9W2EDK<br />
               <img
-                src="https://i.imgur.com/XGwH8RV.jpeg"
-                alt="Calibration graph"
-                width="300"
-                height="200"
-              /><br />
-            </div>
-          </div>
-          <div class="right-col">
-            <div class="subhead">
-              <h4>&nbsp;</h4>
-              <p>
-                Pi-star has included Calibration tool in the 20240208 update.
-                However, at the time this note was written, the connectivity was
-                not stable. It will intermittently connected or drop for no
-                particular reason.<br />
+                src="img/9w2zsh.jpg"
+                alt="9w2zsh decal sticker"
+                style="width: 300px; height: 300px"
+              />
+              <p class="subhead">
+                After getting the signature from two 9M2 holder, I submitted the
+                callsign application form to get the official callsign for myself,
+                9W2ZSH. Coming back To the office, I stop by under the tree near
+                the office by the LDP Highway to start the QSO (two-way
+                communication between amateur radio operator)
+              </p>
+              <p class="subhead">
+                I can't remember who is the other station that pick-up my call. It
+                was the best moment for me being able to talk to another person
+                using only a handy-talkie.
               </p>
             </div>
-          </div>
-        </div>
-        <hr />
-        <div class="container">
-          <div class="left-col">
-            <div class="subhead">
-              <h4>4 Sep 2023</h4>
-              <p>
-                Going back to 1993, where I started to have an interest in
-                amateur radio after watching one of my colleagues where I work
-                at playing with his two-way radio. And that was when the
-                Highland Tower at Bukit Antarabangsa collapse on 11 December
-                1993.
-              </p>
-              <p>
-                I got to see in real life how the amateur radio operator
-                provides the communication support during the transport of the
-                victim from the site to the hospital and my colleague was there.
-                He was allowed to participate due to his capability in
-                communication.
-              </p>
-              <p>
-                It was not until 2007, after I moved to other company, that I've
-                decided to take the exam called RAE (Radio Amatuer Examination)
-                so that I will also become one of the amateur radio operator. I
-                was thinking this is only a hobby and didn't put much time on
-                it. On the exam day, I met a couple of colleague and they asked
-                me what type of rig (radio equipment) that I use and which
-                simplex channel I normally hang out. I look baffled since I
-                never use those jargon.
-              </p>
-              <p>
-                In the exam hall, I saw people comes equiped with pencil, eraser
-                and calculator. I have no clue what do we need the calcultor
-                for. I only have pencil and eraser with me. I make use of the
-                full 3 hours of the provided time to answer 100 question. Going
-                back and forth from page to page. Checking the translation page
-                to ensure that I selected the right answer.
-              </p>
-            </div>
-          </div>
-          <div class="right-col">
-            Decal 9W2ZSH done by 9W2EDK<br />
-            <img
-              src="img/9w2zsh.jpg"
-              alt="9w2zsh decal sticker"
-              style="width: 300px; height: 300px"
-            />
-            <p class="subhead">
-              After getting the signature from two 9M2 holder, I submitted the
-              callsign application form to get the official callsign for myself,
-              9W2ZSH. Coming back To the office, I stop by under the tree near
-              the office by the LDP Highway to start the QSO (two-way
-              communication between amateur radio operator)
-            </p>
-            <p class="subhead">
-              I can't remember who is the other station that pick-up my call. It
-              was the best moment for me being able to talk to another person
-              using only a handy-talkie.
-            </p>
           </div>
         </div>
       </main>
     </div>
-    <hr />
+
+    <script>
+      const PASSWORD = "Notes@900a"; // Replace with your secure password
+
+      // Authenticate the user
+      function authenticate() {
+        const enteredPassword = document.getElementById("authPassword").value;
+        if (enteredPassword === PASSWORD) {
+          document.getElementById("auth").style.display = "none";
+          document.getElementById("blogEditor").style.display = "block";
+        } else {
+          alert("Incorrect password. Access denied.");
+        }
+      }
+
+      // Add a new blog post
+      function addBlogPost() {
+        const title = document.getElementById("blogTitle").value;
+        const content = document.getElementById("blogContent").value;
+        let date = document.getElementById("blogDate").value;
+        const imageInput = document.getElementById("blogImage");
+        let imageUrl = "";
+
+        // Use today's date if no date is specified
+        if (!date) {
+          const today = new Date();
+          date = today.toISOString().split("T")[0]; // Format as YYYY-MM-DD
+        }
+
+        if (!title || !content) {
+          alert("Please enter both a title and content for the blog post.");
+          return;
+        }
+
+        // Handle image upload
+        if (imageInput.files && imageInput.files[0]) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            imageUrl = e.target.result;
+
+            // Save the blog post to localStorage
+            saveBlogPost(title, content, date, imageUrl);
+          };
+          reader.readAsDataURL(imageInput.files[0]);
+        } else {
+          // Save the blog post without an image
+          saveBlogPost(title, content, date, imageUrl);
+        }
+
+        // Clear the editor fields
+        document.getElementById("blogTitle").value = "";
+        document.getElementById("blogContent").value = "";
+        document.getElementById("blogDate").value = "";
+        document.getElementById("blogImage").value = "";
+      }
+
+      function saveBlogPost(title, content, date, imageUrl) {
+        const blogPost = {
+          date: date,
+          title: title,
+          content: content,
+          imageUrl: imageUrl,
+        };
+
+        const blogPosts = JSON.parse(localStorage.getItem("blogPosts")) || [];
+        blogPosts.push(blogPost); // Add the new post
+        localStorage.setItem("blogPosts", JSON.stringify(blogPosts));
+
+        // Render the updated blog posts
+        renderBlogPosts();
+      }
+
+      // Render blog posts from localStorage
+      function renderBlogPosts() {
+        const blogPosts = JSON.parse(localStorage.getItem("blogPosts")) || [];
+        const blogPostsContainer = document.getElementById("blogPosts");
+
+        // Sort blog posts by date (newest first)
+        blogPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        blogPostsContainer.innerHTML = ""; // Clear existing posts
+
+        blogPosts.forEach((post) => {
+          const blogContainer = document.createElement("div");
+          blogContainer.classList.add("container");
+          blogContainer.innerHTML = `
+            <div class="left-col">
+              <div class="subhead">
+                <h4>${new Date(post.date).toLocaleDateString()}</h4>
+                <h3>${post.title}</h3>
+                <p>${post.content}</p>
+              </div>
+            </div>
+            <div class="right-col">
+              ${
+                post.imageUrl
+                  ? `<img src="${post.imageUrl}" alt="Blog Image" style="width: 100%; max-width: 300px; height: auto;" />`
+                  : ""
+              }
+            </div>
+            <hr />
+          `;
+          blogPostsContainer.appendChild(blogContainer);
+        });
+      }
+
+      // Load blog posts on page load
+      document.addEventListener("DOMContentLoaded", renderBlogPosts);
+    </script>
   </body>
 </html>
