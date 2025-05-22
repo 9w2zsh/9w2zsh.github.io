@@ -37,5 +37,9 @@ on:
      - LICENSE
 ```
 
+```bash
+sudo apt update && sudo apt upgrade
+```
+
 ## Photos
 ![img-description](https://www.raspberrypi.com/tutorials/tutorials/images/Cluster-800x533.jpg) _My Lab_
