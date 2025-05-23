@@ -17,28 +17,40 @@ order: 4
 </div>
 
 <div id="radio" class="tab-content">
-  <h1>Radio</h1>
-  <p>Welcome to the radio section. Here you can find information and resources about various radio technologies and hardware.</p>
+  <h1>All about radio</h1>
+  <p>I first started digital mode on DMR. My first DMR radio is the Anytone AT878UV with no bluetooth.</p>
+  <p>My second digital radio is FT70D which I like it very much due to its simplicity to operated. Finally I got FT5D as my primary radio</p>
 </div>
 
 <div id="allstarlink" class="tab-content" style="display:none;">
   <h1>AllStarLink</h1>
-  <p>This is the AllStarLink content. Add your AllStarLink information here.</p>
+  <p>AllStarLink is a network of Amateur Radio repeaters, remote base stations and hot spots accessible to each other via Voice over Internet Protocol. AllStarLink runs on a dedicated computer (including the Rasperry Pi) that you host at your home, radio site or computer center. It is based on the open source Asterisk PBX running our app_rpt application. App_rpt makes Asterisk a powerful system capable of controlling one or more radios. It provides linking of these radio "nodes" to other systems of similar construction anywhere in the world via VoIP.</p>
+  <p>AllStarLink's primary use is as a dedicated computer node wired to your repeater or radio. Connections from Echolink, other VoIP clients and telephone calls are supported.</p>
+  <p>Credit: <a href="https://www.allstarlink.org/">https://www.allstarlink.org/</a></p>
 </div>
 
 <div id="dmr" class="tab-content" style="display:none;">
   <h1>DMR</h1>
-  <p>This is the DMR content. Add your DMR information here.</p>
+  <p>DMR stands for Digital Mobile Radio and is an international standard that has been defined for two-way radios. The DMR standard allows equipment developed by different manufacturers to operate together on the same network for all the functions defined within the standard.</p>
+
+<p>The aim of the DMR standard was to create a digital radio system with low complexity and low cost that still allows for equipment from different manufacturers to work together, allowing users to shop around rather than being locked into a proprietary system which would be costly to replace and maintain.</p>
+
+<p>European Telecommunications Standards Institute (ETSI) is responsible for the creation and maintenance of the DMR standard. The standard was first ratified in 2005 and has subsequently been updated and revised several times, most recently in November 2018.</p>
+
+<p>Credit: <a href="https://www.motorolasolutions.com/en_xp/solutions/what-is-dmr.html">https://www.motorolasolutions.com/en_xp/solutions/what-is-dmr.html</a></p>
+
 </div>
 
 <div id="ysf" class="tab-content" style="display:none;">
   <h1>YSF</h1>
-  <p>This is the YSF content. Add your YSF information here.</p>
+  <p>YSF is an abbreviation of Yaesu System Fusion, developed by Yaesu, one of the leading manufacturers of amateur radio equipment. YSF is a digital voice and data protocol that uses FDMA (Frequency-division multiple access).</p>
 </div>
 
 <div id="hardware" class="tab-content" style="display:none;">
   <h1>Hardware</h1>
-  <p>This is the Hardware content. Add your hardware information here.</p>
+  <p>I first started digital mode on DMR. My first DMR radio is the Anytone AT878UV with no bluetooth.</p>
+
+<p>My second digital radio is FT70D which I like it very much due to its simplicity to operated. Finally I got FT5D as my primary radio</p>
 </div>
 
 <script>
