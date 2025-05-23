@@ -4,5 +4,4 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-### Radio page
-<a href="{{radio.html}}">{{Radio page}}</a>
+[Radio Page](radio.html)
