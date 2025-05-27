@@ -4,5 +4,17 @@ icon: fas fa-info-circle
 order: 5
 ---
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+# About Me
+
+Hello! My name is Zainal (callsign: 9W2ZSH).  
+I'm an amateur radio enthusiast passionate about digital modes, radio hardware, and sharing knowledge with the community.
+
+I enjoy experimenting with different radio technologies, building and maintaining radio equipment, and helping others get started in the world of amateur radio.
+
+If you have any questions, want to collaborate, or just want to say hello, feel free to reach out!
+
+**Email:** [9w2zsh@gmail.com](mailto:9w2zsh@gmail.com)
+
+---
+
+Thank you for visiting my site!
