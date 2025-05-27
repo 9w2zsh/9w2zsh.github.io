@@ -1,8 +1,8 @@
 ---
 title: Learn how to blog
 date: 2025-05-23 21:00:00 +0800
-categories: [learn, blog, jekyll] 
-tags: [servers,raspberry_pi,supermicro]     # TAG names should always be lowercase
+categories: [learn, jekyll] 
+tags: [blog]     # TAG names should always be lowercase
 ---
 
 # Create blog
