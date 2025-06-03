@@ -77,3 +77,5 @@ git remote add origin https://github.com/yourusername/new-repo.git
 git branch -M main
 git push -u origin main
 ```
+
+![Github instruction](/assets/img/gitaddrepo.JPG)
