@@ -11,8 +11,6 @@ author: 9W2ZSH
 
 This is the opening paragraph of your blog post. Give a brief intro to the topic and why you’re writing about it.
 
-—
-
 ## Main Content
 
 Here’s where the main content of your post goes.
