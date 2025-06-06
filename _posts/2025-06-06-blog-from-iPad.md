@@ -4,7 +4,6 @@ title: Blog from iPad
 date: 2025-06-06 12:00:00 +0800
 categories: [tech, blogging]
 tags: [ipad, jekyll, github-pages, markdown]
-author: 9W2ZSH
 ---
 
 ## Introduction
