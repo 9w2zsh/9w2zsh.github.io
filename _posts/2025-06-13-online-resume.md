@@ -1,6 +1,6 @@
 ---
 title: Online resume
-date: 2025-06-16 11:33:00 +0800
+date: 2025-06-13 11:33:00 +0800
 categories: [work]
 tags: [resume,online]
 ---
