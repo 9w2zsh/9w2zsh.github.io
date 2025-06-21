@@ -8,3 +8,5 @@ tags: [net,N5AOK]
 ## The two nets
 
 N5AOK, Oak Hill Amateur Radio Club has two nets hosted. One on Thursday night (Friday morning local) and Friday morning (Friday night local time)
+
+Remember to use Netlogger to monitor the running net
