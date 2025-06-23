@@ -19,6 +19,6 @@ The neat part, their net will have topics to talk about rather than just people 
 As expected, most ham station that checked in has at least 5 or more ht and they playing game like trying to catch up with what other people has. hi hi
 
 ## My answer
-    - Alinco DJ-MD5
-    - Yaesu FT-5D
-    - Wanted to say all but end up saying Alinco DJ-MD5
+- Alinco DJ-MD5
+- Yaesu FT-5D
+- Wanted to say all but end up saying Alinco DJ-MD5
