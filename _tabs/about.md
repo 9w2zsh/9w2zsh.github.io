@@ -13,9 +13,9 @@ I enjoy experimenting with different radio technologies, building and maintainin
 
 If you have any questions, want to collaborate, or just want to say hello, feel free to reach out!
 
-**Email:** [9w2zsh@gmail.com](mailto:9w2zsh@gmail.com)
-**DMR ID:** 5020151
-**DMR Talkgroup:** TG50210
+* **Email:** [9w2zsh@gmail.com](mailto:9w2zsh@gmail.com)
+* **DMR ID:** 5020151
+* **DMR Talkgroup:** TG50210
 
 ---
 
