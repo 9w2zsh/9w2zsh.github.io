@@ -1,6 +1,6 @@
 ---
 # the default layout is 'page'
-icon: radio
+icon: <i class="radio"></i>
 order: 4
 ---
 
