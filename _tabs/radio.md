@@ -1,6 +1,6 @@
 ---
 # the default layout is 'page'
-icon: fas radio
+icon: radio
 order: 4
 ---
 
