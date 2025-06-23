@@ -4,5 +4,6 @@ icon: fas fa-tools
 order: 5
 ---
 
-## Icons
-![icons](https://www.w3schools.com/icons/icons_reference.asp)
+## Tools for markdown
+* <a href="https://www.w3schools.com/icons/icons_reference.asp">Icon for left nav</a>
+* [Markup commands](https://markdownmonster.west-wind.com/docs/Markdown-Monster-Documentation/An-Introduction-to-Markdown.html) by Markdown Monster
