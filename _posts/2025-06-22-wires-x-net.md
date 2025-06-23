@@ -12,9 +12,9 @@ International Wires-X run net on Saturday night (local time) which is Sunday mor
 ## Topic of the net
 
 The neat part, their net will have topics to talk about rather than just people checking in as the other regular net does. This week the topics are:
-    * What is your first ht radio
-    * What is the ht radio you use right now
-    * Which one is your favourite ht radio to use
+* What is your first ht radio
+* What is the ht radio you use right now
+* Which one is your favourite ht radio to use
 
 As expected, most ham station that checked in has at least 5 or more ht and they playing game like trying to catch up with what other people has. hi hi
 
