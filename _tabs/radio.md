@@ -1,6 +1,6 @@
 ---
 # the default layout is 'page'
-icon: network_check
+icon: fas fa-broadcast-tower
 order: 4
 ---
 
