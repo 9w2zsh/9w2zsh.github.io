@@ -1,6 +1,6 @@
 ---
 # the default layout is 'page'
-icon: <i class="radio"></i>
+icon: network_check
 order: 4
 ---
 
