@@ -2,7 +2,7 @@
 layout: post
 title: "Blog using layout post"
 date: 2025-06-22
-categories: [jekyll
+categories: [jekyll]
 tags: [post,layout]
 ---
 
