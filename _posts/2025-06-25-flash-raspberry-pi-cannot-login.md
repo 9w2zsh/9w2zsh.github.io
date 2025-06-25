@@ -10,3 +10,7 @@ tags: [login, pi-0]
 I wanted to install ASL3 on a new SD card so I flashed it with Raspberry Pi-0. I used root as the user and the password that I know. Surprisingly, when I plug in to Pi-0 and ssh to it, I cannot login as root even though i was using the right password.
 
 The [forum](https://forums.raspberrypi.com/viewtopic.php?t=333248) on Raspberry Pi website has some suggestions
+
+## True enough
+
+As one of the suggestion given in the forum was, Rapberry Pi doesn't allow root access. So, I flash the sd card again but this time I put a user instead of root. It works this time!
