@@ -47,3 +47,5 @@ got bunch of errors, can't find source to download version xxx.xxx.xx
 Use [this step]((https://allstarlink.github.io/install/pi-appliance/pi-detailed/#step-by-step-pi-appliance-setup) from https://allstarlink.github.io/install/pi-appliance/pi-detailed/#step-by-step-pi-appliance-setup) instead
 
 [Download](https://repo.allstarlink.org/images/pi/) image from https://repo.allstarlink.org/images/pi/ and burn to sd card using Raspberry Pi imager
+
+Use this [Youtube video](https://www.youtube.com/watch?v=NPgTRa5bpnY)
