@@ -11,7 +11,7 @@ Finally I own a LoRa APRS tracker. I am not sure how I will use it but its kinda
 
 ![LoRa APRS Tracker](/assets/img/lora.jpg)<br>_LoRa APRS Tracker_
 
-However, when I on the tracker, on [aprs.fi](https://aprs.fi), it always has the wording "TERENGGANU DX ARRES" on the station info. I bought from them but I am not part of the club. 
+However, when I on the tracker, on [aprs.fi](https://aprs.fi), it always has the wording `TERENGGANU DX ARRES` on the station info. I bought from them but I am not part of the club. 
 
 ![APRS station info](/assets/img/aprsMap.jpg)<br>_APRS station info_
 
