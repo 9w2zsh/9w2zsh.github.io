@@ -1,8 +1,8 @@
 ---
 title: "Check out LoRa APRS tracker"
 date: 2025-07-01
-categories: [amateur_radio, LoRa]
-tags: [tracker, APRS]
+categories: [amateur_radio,lora]
+tags: [tracker,APRS]
 ---
 
 ## LoRa APRS tracker
