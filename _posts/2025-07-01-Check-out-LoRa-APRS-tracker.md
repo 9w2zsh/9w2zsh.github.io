@@ -16,3 +16,10 @@ However, when I on the tracker, on [aprs.fi](https://aprs.fi), it always has the
 ![APRS station info](/assets/img/aprsMap.jpg)<br>_APRS station info_
 
 So I asked how do I blank out that field. Turn out to be, I will have to use VS Code, clone the project [LoRa_APRS_Tracker](https://github.com/richonguzman/LoRa_APRS_Tracker) by [Ricardon Guzman](https://github.com/richonguzman) and flash the firmware of the tracker.
+
+## Other sources
+
+1. [How to update LoRa APRS tracker by 9M2PJU](https://hamradio.my/2025/03/how-to-update-your-lora-aprs-tracker-using-the-web-flasher/)
+2. [Scottish Isles DX Group](https://sidx.org.uk/projects/lora-aprs-setup/)
+3. [LoRa tracker web flasher](https://richonguzman.github.io/lora-tracker-web-flasher/installer.html) 
+
