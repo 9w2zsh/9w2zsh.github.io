@@ -1,8 +1,8 @@
 ---
 title: "Flash Raspberry Pi cannot login"
 date: 2025-06-25
-categories: [amateur_radio, raspberry-pi]
-tags: [login, pi-0]
+categories: [amateur_radio, raspberry_pi]
+tags: [login, pi_0]
 ---
 
 ## Flash a new sd card
