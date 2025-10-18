@@ -6,7 +6,7 @@ tags: [md-uv32][baofeng]
 ---
 
 ## Pre-requisite
-Make sure you already downloaded and install the MD-32UV programming software (CPS) from Baofeng website or any other trusted provider
+Make sure you already downloaded and install the MD-32UV programming software (CPS) from Baofeng official website or any other trusted provider
 
 ## Radio channel info
 
