@@ -2,7 +2,7 @@
 title: "Program Baofeng MD-UV32"
 date: 2025-10-18
 categories: [radio,program]
-tags: [md-32uv,baofeng]
+tags: [md_32uv,baofeng]
 ---
 
 ## Pre-requisite
