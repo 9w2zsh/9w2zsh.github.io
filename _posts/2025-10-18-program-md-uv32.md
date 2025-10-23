@@ -14,8 +14,8 @@ Make sure you already downloaded and install the MD-32UV programming software (C
 ![01_load_cps](/assets/img/01_load_cps.png)
 
 - Check comm port. Select the right comm port connected to your radio<br>
-![02_setting_com_port](/assets/img/02_setting_com_port.png#left)<br>
-![03_com_port](/assets/img/03_com_port.png#left)
+![02_setting_com_port](/assets/img/02_setting_com_port.png)<br>
+![03_com_port](/assets/img/03_com_port.png)
 
 - Read from radio, hit OK<br>
 ![04_read_from_radio](/assets/img/04_read_from_radio.png)<br>
