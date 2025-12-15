@@ -17,14 +17,16 @@ If you have any questions, want to collaborate, or just want to say hello, feel 
 * **DMR ID:** 5020151
 * **DMR Talkgroup:** TG50210
 ---
-    <iframe
-      align="top"
-      frameborder="0"
-      height="600"
-      scrolling="yes"
-      src="https://logbook.qrz.com/lbstat/9W2ZSH/"
-      width="720"
-    ></iframe>
----
 
+## QRZ.com logbook
+
+<iframe
+    align="top"
+    frameborder="1"
+    height="580"
+    scrolling="yes"
+    src="https://logbook.qrz.com/lbstat/9W2ZSH/"
+    width="720"></iframe><br>
+
+---
 Thank you for visiting my site!
