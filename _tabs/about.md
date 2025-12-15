@@ -16,6 +16,7 @@ If you have any questions, want to collaborate, or just want to say hello, feel 
 * **Email:** [9w2zsh@gmail.com](mailto:9w2zsh@gmail.com)
 * **DMR ID:** 5020151
 * **DMR Talkgroup:** TG50210
+
 ---
 
 ## QRZ.com logbook
@@ -29,4 +30,5 @@ If you have any questions, want to collaborate, or just want to say hello, feel 
     width="720"></iframe><br>
 
 ---
+
 Thank you for visiting my site!
