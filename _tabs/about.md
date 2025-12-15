@@ -16,7 +16,15 @@ If you have any questions, want to collaborate, or just want to say hello, feel 
 * **Email:** [9w2zsh@gmail.com](mailto:9w2zsh@gmail.com)
 * **DMR ID:** 5020151
 * **DMR Talkgroup:** TG50210
-
+---
+    <iframe
+      align="top"
+      frameborder="0"
+      height="600"
+      scrolling="yes"
+      src="https://logbook.qrz.com/lbstat/9W2ZSH/"
+      width="720"
+    ></iframe>
 ---
 
 Thank you for visiting my site!
