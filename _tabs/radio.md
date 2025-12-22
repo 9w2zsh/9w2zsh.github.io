@@ -47,7 +47,7 @@ order: 4
   <p>YSF is an abbreviation of Yaesu System Fusion, developed by Yaesu, one of the leading manufacturers of amateur radio equipment. YSF is a digital voice and data protocol that uses FDMA (Frequency-division multiple access).</p>
 </div>
 
-<div id="pistar" class="tab-content">
+<div id="pistar" class="tab-content" style="display:none;">
   <h1>Pi-star configuration and commands</h1>
   <p>
   | Command | Function |
