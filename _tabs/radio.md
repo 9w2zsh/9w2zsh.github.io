@@ -52,10 +52,10 @@ order: 4
 
 Here are some pistar command that can be used on CMD CLI to configure the MMDVM running Pi-star
 
- | Command | Function |
- | ------- | -------- |
- | sudo pistar-ysflink fcs00290 | Connect to AmericaLink    |
- | sudo pistar-findmodem        | Show the mmdvm modem type |
+| Command | Function |
+| ------- | -------- |
+| sudo pistar-ysflink fcs00290 | Connect to AmericaLink    |
+| sudo pistar-findmodem        | Show the mmdvm modem type |
 
   <p>That is so ==funny== :joy:</p>
 </div>
