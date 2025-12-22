@@ -49,9 +49,9 @@ order: 4
 
 <div id="pistar" class="tab-content">
   <h1>Pi-star configuration and commands</h1>
-  <p>|Command|Function|
-  |----------|----------|
-  |sudo pistar-findmodem|Show the mmdvm modem type|</p>
+  <p>| Command | Function |
+  | ---------- | ---------- |
+  | sudo pistar-findmodem | Show the mmdvm modem type |</p>
   <p>.</p>
 </div>
 
