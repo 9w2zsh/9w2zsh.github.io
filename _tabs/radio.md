@@ -52,6 +52,7 @@ order: 4
   <p>
   | Command | Function |
   | ---------- | ---------- |
+  | sudo pistar-ysflink fcs00290 | Connect to AmericaLink |
   | sudo pistar-findmodem | Show the mmdvm modem type |
   </p>
   <p>.</p>
