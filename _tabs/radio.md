@@ -49,14 +49,13 @@ order: 4
 
 <div id="pistar" class="tab-content" style="display:none;">
   <h1>Pi-star configuration and commands</h1>
-  <p>
-  +---------+----------+
+  
   | Command | Function |
-  +=========+==========+
-  | sudo pistar-ysflink fcs00290 | Connect to AmericaLink |
-  | sudo pistar-findmodem | Show the mmdvm modem type |
-  </p>
-  <p>.</p>
+  | ------- | -------- |
+  | sudo pistar-ysflink fcs00290 | Connect to AmericaLink    |
+  | sudo pistar-findmodem        | Show the mmdvm modem type |
+  
+  <p>That is so ==funny== :joy:</p>
 </div>
 
 <div id="hardware" class="tab-content" style="display:none;">
