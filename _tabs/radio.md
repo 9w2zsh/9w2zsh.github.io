@@ -50,6 +50,8 @@ order: 4
 <div id="pistar" class="tab-content" style="display:none;">
   <h1>Pi-star configuration and commands</h1>
 
+Here are some pistar command that can be used on CMD CLI to configure the MMDVM running Pi-star
+
  | Command | Function |
  | ------- | -------- |
  | sudo pistar-ysflink fcs00290 | Connect to AmericaLink    |
