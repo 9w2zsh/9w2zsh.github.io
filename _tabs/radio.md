@@ -11,6 +11,7 @@ order: 4
       <a href="#" onclick="showTab('allstarlink'); return false;" style="margin-right: 10px;">AllStarLink</a>
       <a href="#" onclick="showTab('dmr'); return false;" style="margin-right: 10px;">DMR</a>
       <a href="#" onclick="showTab('ysf'); return false;" style="margin-right: 10px;">YSF</a>
+      <a href="#" onclick="showTab('pistar'); return false;" style="margin-right: 10px;">Pi-Star</a>
       <a href="#" onclick="showTab('hardware'); return false;">Hardware</a>
     </nav>
   </div>
@@ -44,6 +45,13 @@ order: 4
 <div id="ysf" class="tab-content" style="display:none;">
   <h1>YSF</h1>
   <p>YSF is an abbreviation of Yaesu System Fusion, developed by Yaesu, one of the leading manufacturers of amateur radio equipment. YSF is a digital voice and data protocol that uses FDMA (Frequency-division multiple access).</p>
+</div>
+
+<div id="pistar" class="tab-content">
+  <h1>Pi-star configuration and commands</h1>
+  <p>|Command|Function|
+  |sudo pistar-findmodem|Show the mmdvm modem type</p>
+  <p>.</p>
 </div>
 
 <div id="hardware" class="tab-content" style="display:none;">
