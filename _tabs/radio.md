@@ -40,6 +40,23 @@ order: 4
     <li><a href="https://hamradiodx.net/" target="_blank">Ham Radio DX</a></li>
     <li><a href="https://allmon.vk7.com.au/link.php?nodes=1727,1752,1725,1720,55580,59598,59606,59727)" target="_blank">VK Link Network</a></li>
   </ol>
+
+  <table>
+    <tr>
+      <th>File</th>
+      <th>Previous</th>
+      <th>Change to</th>
+    </tr>
+    <tr>
+      <td>/etc/asterisk/rpt.conf</td>
+      <td>idrecording=|iDE 9W2ZSH/L<br>-announce callsign in CW</td>
+      <td>idrecording=/etc/asterisk/local/node-id<br>-announce callsign using voice</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
 </div>
 
 <div id="dmr" class="tab-content" style="display:none;">
