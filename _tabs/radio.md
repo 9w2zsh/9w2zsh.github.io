@@ -53,8 +53,44 @@ order: 4
       <td>idrecording=/etc/asterisk/local/node-id<br>-announce callsign using voice</td>
     </tr>
     <tr>
+      <td>/opt/Analog_Bridge/Analog_Bridge.ini</td>
+      <td>usrpAudio = AUDIO_UNITY</td>
+      <td>usrpAudio = AUDIO_USE_GAIN</td>
+    </tr>
+    <tr>
       <td></td>
+      <td>repeaterID = 9</td>
+      <td>repeaterID = 502015112</td>
+    </tr>
+    <tr>
+      <td>\opt\MMDVM_Bridge\DVSwitch.ini</td>
+      <td>fallbackID = 1234567</td>
+      <td>fallbackID = 5020151</td>
+    </tr>
+    <tr>
+      <td>\opt\MMDVM_Bridge\MMDVM_Bridge.ini</td>
+      <td>[General] Id=502015111</td>
+      <td>Id=5020151</td>
+    </tr>
+    <tr>
       <td></td>
+      <td>[P25] Enable=1</td>
+      <td>Enable=0</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>[NXDN] Enable=1</td>
+      <td>Enable=0</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>[P25 Network] Enable=1</td>
+      <td>Enable=0</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>[NXDN Network] Enable=1</td>
+      <td>Enable=0</td>
     </tr>
   </table>
 </div>
