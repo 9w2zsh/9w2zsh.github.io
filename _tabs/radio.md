@@ -21,11 +21,10 @@ order: 4
   <h1>All about radio</h1>
   <p>I first started digital mode on DMR. My first DMR radio is the Anytone AT878UV with no bluetooth.</p>
   <p>My second digital radio is FT70D which I like it very much due to its simplicity to operated. Finally I got FT5D as my primary radio</p>
-  <p><h4>Reference</h4>
+  <h4>Reference</h4>
   <ol>
     <li><a href="https://www.wm7d.net/fcc_uls/" target="_blank">WM7D US Callsing search</a></li>
   </ol>
-  </p>
 </div>
 
 <div id="allstarlink" class="tab-content" style="display:none;">
@@ -34,16 +33,13 @@ order: 4
   <p>AllStarLink's primary use is as a dedicated computer node wired to your repeater or radio. Connections from Echolink, other VoIP clients and telephone calls are supported.</p>
   <p>Credit: <a href="https://www.allstarlink.org/">https://www.allstarlink.org/</a></p>
 
-  <p><h4>Documentation</h4>
+  <h4>Documentation</h4>
   <a href="https://www.freedmr.uk/wp-content/uploads/2024/02/ASL-to-DMR-Bridge.pdf" target="_blank">ASL to DMR Bridge</a>
-  </p>
-
-  <p><h4>Reference</h4>
+  <h4>Reference</h4>
   <ol type=1>
     <li><a href="https://hamradiodx.net/" target="_blank">Ham Radio DX</a></li>
     <li><a href="https://allmon.vk7.com.au/link.php?nodes=1727,1752,1725,1720,55580,59598,59606,59727)" target="_blank">VK Link Network</a></li>
   </ol>
-  </p>
 </div>
 
 <div id="dmr" class="tab-content" style="display:none;">
