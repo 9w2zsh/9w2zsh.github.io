@@ -28,6 +28,15 @@ order: 4
   <p>AllStarLink is a network of Amateur Radio repeaters, remote base stations and hot spots accessible to each other via Voice over Internet Protocol. AllStarLink runs on a dedicated computer (including the Rasperry Pi) that you host at your home, radio site or computer center. It is based on the open source Asterisk PBX running our app_rpt application. App_rpt makes Asterisk a powerful system capable of controlling one or more radios. It provides linking of these radio "nodes" to other systems of similar construction anywhere in the world via VoIP.</p>
   <p>AllStarLink's primary use is as a dedicated computer node wired to your repeater or radio. Connections from Echolink, other VoIP clients and telephone calls are supported.</p>
   <p>Credit: <a href="https://www.allstarlink.org/">https://www.allstarlink.org/</a></p>
+
+  ## Documentation
+
+  1. [ASL to DMR Bridge](https://www.freedmr.uk/wp-content/uploads/2024/02/ASL-to-DMR-Bridge.pdf)  
+
+  ## Reference
+
+  1. [Ham Radio DX](https://hamradiodx.net/)  
+  2. [VK Link Network](https://allmon.vk7.com.au/link.php?nodes=1727,1752,1725,1720,55580,59598,59606,59727)  
 </div>
 
 <div id="dmr" class="tab-content" style="display:none;">
