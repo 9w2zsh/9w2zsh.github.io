@@ -29,14 +29,15 @@ order: 4
   <p>AllStarLink's primary use is as a dedicated computer node wired to your repeater or radio. Connections from Echolink, other VoIP clients and telephone calls are supported.</p>
   <p>Credit: <a href="https://www.allstarlink.org/">https://www.allstarlink.org/</a></p>
 
-  ## Documentation
+  <p><h4>Documentation</h4><br>
+  <a href="https://www.freedmr.uk/wp-content/uploads/2024/02/ASL-to-DMR-Bridge.pdf">ASL to DMR Bridge</a>
+  </p>
 
-  1. [ASL to DMR Bridge](https://www.freedmr.uk/wp-content/uploads/2024/02/ASL-to-DMR-Bridge.pdf)  
-
-  ## Reference
-
-  1. [Ham Radio DX](https://hamradiodx.net/)  
-  2. [VK Link Network](https://allmon.vk7.com.au/link.php?nodes=1727,1752,1725,1720,55580,59598,59606,59727)  
+  <p><h4>Reference</h4><br>
+  <ol type=1>
+    <li><a href="https://hamradiodx.net/">Ham Radio DX</a></li>
+  <li><a href="https://allmon.vk7.com.au/link.php?nodes=1727,1752,1725,1720,55580,59598,59606,59727)">VK Link Network</a></li>
+  </ol>
 </div>
 
 <div id="dmr" class="tab-content" style="display:none;">
