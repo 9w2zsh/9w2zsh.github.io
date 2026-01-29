@@ -43,6 +43,7 @@ order: 4
     <li><a href="https://hamradiodx.net/" target="_blank">Ham Radio DX</a></li>
     <li><a href="https://allmon.vk7.com.au/link.php?nodes=1727,1752,1725,1720,55580,59598,59606,59727)" target="_blank">VK Link Network</a></li>
   </ol>
+  </p>
 </div>
 
 <div id="dmr" class="tab-content" style="display:none;">
