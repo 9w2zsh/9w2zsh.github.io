@@ -9,7 +9,7 @@ tags: [reboot]
 
 1. login to ASL node
 2. at menu take option 9 to get shell prompt
-3. at the prompt type 'crontab -e`
+3. at the prompt type `crontab -e`
 4. add this line
-`0 4 * * * /sbin/reboot
+`0 4 * * * /sbin/reboot`
 5. reboot ASL
