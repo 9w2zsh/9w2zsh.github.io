@@ -23,7 +23,7 @@ order: 4
   <p>My second digital radio is FT70D which I like it very much due to its simplicity to operated. Finally I got FT5D as my primary radio</p>
   <p><h4>Reference</h4>
   <ol>
-    <li><a href="https://www.wm7d.net/fcc_uls/"target="_blank">WM7D US Callsing search</a></li>
+    <li><a href="https://www.wm7d.net/fcc_uls/" target="_blank">WM7D US Callsing search</a></li>
   </ol>
   </p>
 </div>
