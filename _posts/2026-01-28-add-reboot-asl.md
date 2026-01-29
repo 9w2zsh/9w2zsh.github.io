@@ -1,6 +1,6 @@
 ---
 title: "Adding reboot at 4:00am"
-date: 2025-09-05
+date: 2026-01-28
 categories: [asl,crontab]
 tags: [reboot]
 ---
