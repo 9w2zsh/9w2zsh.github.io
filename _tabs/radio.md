@@ -113,6 +113,8 @@ order: 4
 <div id="ysf" class="tab-content" style="display:none;">
   <h1>YSF</h1>
   <p>YSF is an abbreviation of Yaesu System Fusion, developed by Yaesu, one of the leading manufacturers of amateur radio equipment. YSF is a digital voice and data protocol that uses FDMA (Frequency-division multiple access).</p>
+  ##### Links  
+  - [America-link](http://americalinkysf.radiotechnology.xyz/?fbclid=IwY2xjawPxPb5leHRuA2FlbQIxMABicmlkETFFNWVCbkJSZFBOUWtJcXFvc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHibBFEr7ysieXatcWoWgWnqxM__vhTc-OuFDwAD9ovfEsELo1llBQVMB3lg6_aem_fjSICDoF4aywrIPlLUBRbA)
 </div>
 
 <div id="pistar" class="tab-content" style="display:none;">
