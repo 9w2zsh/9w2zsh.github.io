@@ -7,4 +7,4 @@ tags: [ftm300]
 
 ## How to configure FTM-300 for APRS comms with ISS
 
-[Documentation] (https://www.facebook.com/groups/ftm300d/permalink/1220724525169182)
+[Documentation](https://www.facebook.com/groups/ftm300d/permalink/1220724525169182)
