@@ -34,7 +34,9 @@ order: 4
   <p>Credit: <a href="https://www.allstarlink.org/">https://www.allstarlink.org/</a></p>
 
   <h4>Documentation</h4>
-  <a href="https://www.freedmr.uk/wp-content/uploads/2024/02/ASL-to-DMR-Bridge.pdf" target="_blank">ASL to DMR Bridge</a>
+  <a href="https://www.freedmr.uk/wp-content/uploads/2024/02/ASL-to-DMR-Bridge.pdf" target="_blank">ASL to DMR Bridge</a><br>
+  <a href="https://docs.google.com/document/d/1eN50Csr29eAprBu7eKA0Bfa2XUcsXw5iktY1Ey-Qjkg/edit?tab=t.0" target="_blank">Allstar to DMR bridge how to</a><br>
+  <a href="https://rvradionetwork.com/documents/SHARI%20Allstar%20Node%20Setup%20Procedure-Version%201.4.pdf?fbclid=IwY2xjawPpSGVleHRuA2FlbQIxMABicmlkETE0UEhUN3VQa0xob1FDSUVkc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHiE9WcDNK-_7tYMARUaxyDs-eu8fkrNVR1CNyu1t9ojOlh5ecl7vph2Ym4Hx_aem_doooaM9V6ImKLmFJTY9N_w" target="_blank">SHARI Allstar node setup</a>
   <h4>Reference</h4>
   <ol type=1>
     <li><a href="https://hamradiodx.net/" target="_blank">Ham Radio DX</a></li>
@@ -63,12 +65,12 @@ order: 4
       <td>repeaterID = 502015112</td>
     </tr>
     <tr>
-      <td>\opt\MMDVM_Bridge\DVSwitch.ini</td>
+      <td>/opt/MMDVM_Bridge/DVSwitch.ini</td>
       <td>fallbackID = 1234567</td>
       <td>fallbackID = 5020151</td>
     </tr>
     <tr>
-      <td>\opt\MMDVM_Bridge\MMDVM_Bridge.ini</td>
+      <td>/opt/MMDVM_Bridge/MMDVM_Bridge.ini</td>
       <td>[General] Id=502015111</td>
       <td>Id=5020151</td>
     </tr>
@@ -93,6 +95,8 @@ order: 4
       <td>Enable=0</td>
     </tr>
   </table>
+  <h4>File location</h4>
+  /var/lib/mmdvm/DMRIds.dat<br>
 </div>
 
 <div id="dmr" class="tab-content" style="display:none;">
