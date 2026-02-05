@@ -27,4 +27,6 @@ make sure
 
 ## Reference
 
-[Command for tuning YSF with Allstar](https://dvswitch.groups.io/g/main/topic/command_for_tuning_ysf_with/80024935)
+1. [Command for tuning YSF with Allstar](https://dvswitch.groups.io/g/main/topic/command_for_tuning_ysf_with/80024935)
+2. [Is it possible to link YSF to ALLSTARLINK?](https://dvswitch.groups.io/g/allstarlink/topic/is_it_possible_to_link_ysf_to/87126486)  
+[Sample config file](/assets/img/YSF_to_ASL_sample_configuration.txt)
