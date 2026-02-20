@@ -23,7 +23,7 @@ order: 4
   <p>My second digital radio is FT70D which I like it very much due to its simplicity to operated. Finally I got FT5D as my primary radio</p>
   <h4>Reference</h4>
   <ol>
-    <li><a href="https://www.wm7d.net/fcc_uls/" target="_blank">WM7D US Callsing search</a></li>
+    <li>[WM7D US Callsign search](https://www.wm7d.net/fcc_uls/)</li>
   </ol>
 </div>
 
@@ -114,8 +114,8 @@ order: 4
 <div id="ysf" class="tab-content" style="display:none;">
   <h1>YSF</h1>
   <p>YSF is an abbreviation of Yaesu System Fusion, developed by Yaesu, one of the leading manufacturers of amateur radio equipment. YSF is a digital voice and data protocol that uses FDMA (Frequency-division multiple access).</p>
-  ##### Links  
-  - [America-link](http://americalinkysf.radiotechnology.xyz/?fbclid=IwY2xjawPxPb5leHRuA2FlbQIxMABicmlkETFFNWVCbkJSZFBOUWtJcXFvc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHibBFEr7ysieXatcWoWgWnqxM__vhTc-OuFDwAD9ovfEsELo1llBQVMB3lg6_aem_fjSICDoF4aywrIPlLUBRbA)
+  ##### Links
+  - [America link](http://americalinkysf.radiotechnology.xyz/?fbclid=IwY2xjawPxPb5leHRuA2FlbQIxMABicmlkETFFNWVCbkJSZFBOUWtJcXFvc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHibBFEr7ysieXatcWoWgWnqxM__vhTc-OuFDwAD9ovfEsELo1llBQVMB3lg6_aem_fjSICDoF4aywrIPlLUBRbA)  
 </div>
 
 <div id="pistar" class="tab-content" style="display:none;">

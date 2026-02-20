@@ -20,7 +20,8 @@ make sure
 ## To change to different reflector (add 8 in front)
 
 `/opt/MMDVM_Bridge\dvswitch.sh tune 818807` - Malaysia TG50210  
-`/opt/MMDVM_Bridge/dvswitch.sh tune 832592` - America-link
+`/opt/MMDVM_Bridge/dvswitch.sh tune 62426` - Cross Road, TX - CRHCR  
+`/opt/MMDVM_Bridge/dvswitch.sh tune 832592` - America-link  
 
 * add 8 in front of YSF number in the command line to change YSF
 * link to [Malaysia YSF](https://xlx.lucifernet.com/dashboard/index.php?show=ysfmalaysia)
