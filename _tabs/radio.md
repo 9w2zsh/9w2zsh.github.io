@@ -41,6 +41,7 @@ order: 4
   <ol type=1>
     <li><a href="https://hamradiodx.net/" target="_blank">Ham Radio DX</a></li>
     <li><a href="https://allmon.vk7.com.au/link.php?nodes=1727,1752,1725,1720,55580,59598,59606,59727)" target="_blank">VK Link Network</a></li>
+    <li><a href="https://www.youtube.com/watch?v=QkO6dk8cdEs">Easiest Allstar node</a></li>
   </ol>
 
   <table>
