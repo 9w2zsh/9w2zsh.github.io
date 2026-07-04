@@ -1,8 +1,8 @@
 ---
 title: "Better blogging using iPad"
-date: 2027-07-04
+date: 2026-07-04
 categories: [tools]
-tags: [blog, ipad]
+tags: [blog,ipad]
 ---
 
 ## Overview
