@@ -34,6 +34,7 @@ This is a new method for me to start
 
 | Callsign | Country | Band | Mode | Report |
 |-----------|----------|------|------|--------|
+|-----------|----------|------|------|--------|
 
 ---
 
