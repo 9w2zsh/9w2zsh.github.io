@@ -40,8 +40,6 @@ All clear
 
 ## Photos
 
-![](/assets/images/2026/)
-
 ---
 
 ## Conclusion
