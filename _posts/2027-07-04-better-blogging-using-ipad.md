@@ -1,9 +1,10 @@
 ---
-layout: post
 title: "Better blogging using iPad"
+date: 2026-03-31
 categories: [tools]
 tags: [blog, ipad]
 ---
+
 ## Overview
 I was asking ChatGPT on the better way of blogging since I wanted to go back and continue blogging
 
