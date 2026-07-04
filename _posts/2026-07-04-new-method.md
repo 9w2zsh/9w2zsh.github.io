@@ -39,8 +39,6 @@ This is a new method for me to start
 
 ## Photos
 
-![](/assets/img/)
-
 ---
 
 ## Conclusion
