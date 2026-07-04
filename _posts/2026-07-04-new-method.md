@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Second test
+title: "Second test"
 date: 2026-07-04
 categories:[Blog,github]
 tags:[test,new]
