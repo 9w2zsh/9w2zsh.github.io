@@ -1,9 +1,8 @@
 ---
-layout: post
 title: "Blog using template"
 date: 2026-07-04
 categories: [amateur,radio]
-tags: [9W2ZSH]
+tags: [9w2zsh]
 ---
 
 # Introduction
