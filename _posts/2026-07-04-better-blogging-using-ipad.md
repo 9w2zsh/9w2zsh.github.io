@@ -13,6 +13,8 @@ since after I attended the Gen AI workshop, my interest in using AI grows by day
 
 I turned to chatGPT to advise what I should use. after struggling with software install and testing, seems like the best way to blog on github using my ipad still using the github client. but with the additional template that i will copy and paste to the new page.
 
+---
+
 | Item | Details |
 |------|---------|
 | Radio | |
