@@ -1,11 +1,9 @@
 ---
 layout: post
-title: Blog using template
+title: "Blog using template"
 date: 2026-07-04
-categories:
-  - Amateur Radio
-tags:
-  - 9W2ZSH
+categories: [amateur,radio]
+tags: [9W2ZSH]
 ---
 
 # Introduction
