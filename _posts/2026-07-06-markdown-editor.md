@@ -28,7 +28,7 @@ I will start looking at them and the one that caught my eyes are:
 ## Table
 
 |Name|Address|Tel no|
-|---|---|---|
+|-|-|-|
 |Sample|No 8|012|
 |Example|No 10|019|
 |Test2|No 12|03|
