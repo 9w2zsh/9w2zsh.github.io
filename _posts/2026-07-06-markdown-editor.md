@@ -13,10 +13,10 @@ The idea is to be able to blog both on PC and tablet/mobile phone. Maybe will be
 ---
 ## List of editors
 
-As usual Github is the best referal and people has shared lots of good stuff there. I found this repo by @mundimark, ![Awesome Markdown Editors & (Pre)viewers](https://github.com/mundimark/awesome-markdown-editors)
+As usual Github is the best referal and people has shared lots of good stuff there. I found this repo by @mundimark, [Awesome Markdown Editors & (Pre)viewers](https://github.com/mundimark/awesome-markdown-editors)
 
 I will start looking at them and the one that caught my eyes are:
-1. ![JekyllPad](https://www.jekyllpad.com/tools/online-markdown-wysiwyg-editor)
-2. ![StackEdit](https://stackedit.io/)
-3. ![Dillinger](https://dillinger.io/)
-4. ![Typo](https://typo.robino.dev/)
+1. [JekyllPad](https://www.jekyllpad.com/tools/online-markdown-wysiwyg-editor)
+2. [StackEdit](https://stackedit.io/)
+3. [Dillinger](https://dillinger.io/)
+4. [Typo](https://typo.robino.dev/)
