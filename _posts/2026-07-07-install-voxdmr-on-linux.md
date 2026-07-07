@@ -20,9 +20,13 @@ started my day as usual. after breakfast, enjoying the coffee and time to checko
    curl -LO https://github.com/jcalado/voxdmr-site/releases/latest/download/VoxDMR-linux-x86_64
    ```
 2. chmod
+   ```
    chmod +x VoxDMR-linux-x86_64
-3. run
+   ```
+4. run
+   ```
    ./VoxDMR-linux-x86_64
+   ```
 
 not so fast!
 
@@ -30,7 +34,7 @@ VoxDMR required GLIBC 2.43 and linux Mint only has GLIBC 2.31. It is not recomme
 
 ---
 
-### compile local GLIBC 2.43
+## compile local GLIBC 2.43
 
 1. prepare system
    ```
@@ -47,7 +51,7 @@ VoxDMR required GLIBC 2.43 and linux Mint only has GLIBC 2.31. It is not recomme
    ```
 3. configure and compile
    ```
-   # Replace $HOME with your actual home path if needed **i didn't change anything**
+   Note: Replace $HOME with your actual home path if needed, i didn't change anything
    ../glibc-2.43/configure --prefix=$HOME/glibc-2.43-local --disable-werror
    make -j$(nproc)
    make install   
@@ -55,15 +59,16 @@ VoxDMR required GLIBC 2.43 and linux Mint only has GLIBC 2.31. It is not recomme
 4. integrate with VoxDMR
    ```
    cd ~
-   * Assuming VoxDMR is in your home directory
+   Note: Assuming VoxDMR is in your home directory
    mv glibc-2.43-local VoxDMR/glibc-2.43-local   
    ```
 5. running VoxDMR with local GLIBC
    ```
    cd ~
-   * Assuming VoxDMR is in your home directory
+   Note: Assuming VoxDMR is in your home directory
    mv glibc-2.43-local VoxDMR/glibc-2.43-local   
    ```
+
 ---
 
 ## ref
