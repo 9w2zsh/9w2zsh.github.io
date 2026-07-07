@@ -1,8 +1,8 @@
 ---
-title: "Template"
-date: 2026-01-01
-categories: [amateur,radio]
-tags: [radio]
+title: "Install VoxDMR on linux"
+date: 2026-07-07
+categories: [install,dmr,linux]
+tags: [voxdmr,app]
 ---
 
 ## how it was started
