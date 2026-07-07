@@ -16,7 +16,7 @@ started my day as usual. after breakfast, enjoying the coffee and time to checko
 ## the steps
 
 1. Download VoxDMR from the [installation website](https://www.voxdmr.com/docs/installation/).
-   ```curl
+   ```
    curl -LO https://github.com/jcalado/voxdmr-site/releases/latest/download/VoxDMR-linux-x86_64
    ```
 2. chmod
@@ -50,27 +50,40 @@ VoxDMR required GLIBC 2.43 and linux Mint only has GLIBC 2.31. It is not recomme
    mkdir build && cd build
    ```
 3. configure and compile
-   ```
    Note: Replace $HOME with your actual home path if needed, i didn't change anything
+   ```
    ../glibc-2.43/configure --prefix=$HOME/glibc-2.43-local --disable-werror
    make -j$(nproc)
    make install   
    ```
 4. integrate with VoxDMR
+   Note: Assuming VoxDMR is in your home directory
    ```
    cd ~
-   Note: Assuming VoxDMR is in your home directory
    mv glibc-2.43-local VoxDMR/glibc-2.43-local   
    ```
 5. running VoxDMR with local GLIBC
+   Note: you cannot simply run the program normally, you must invoke dynamic linker from the local GLIBC folder
    ```
-   cd ~
-   Note: Assuming VoxDMR is in your home directory
-   mv glibc-2.43-local VoxDMR/glibc-2.43-local   
+   cd ~/VoxDMR
+   ./glibc-2.43-local/lib/ld-linux-x86-64.so.2 --library-path ./glibc-2.43-local/lib ./VoxDMR-linux-x86_64
    ```
 
 ---
 
-## ref
+## you might run into issue with libasound.so.2.
+
+if you run VoxDMR and it cannot find libasound.so.2, you need to add the system path to the library search path
+```
+cd ~/VoxDMR
+./glibc-2.43-local/lib/ld-linux-x86-64.so.2 \
+  --library-path ./glibc-2.43-local/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu \
+  ./VoxDMR-linux-x86_64
+```
+that should fix it
+
+---
+
+### ref
 
 [Search from Brave](https://search.brave.com/ask?q=how+to+install+GLIBC_2.43+on+linux+mint&conversation=094bd7faa4e980d524f20a348fe76559bccb#F9QA6T9o4UfykBYmt--0Z1fB9dOcZFkMyukzK1SzrxM)
