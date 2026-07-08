@@ -1,14 +1,13 @@
 ---
-#use page layout
 icon: fas fa-tools
 order: 5
 ---
 
 ## Tools for markdown  
 
-* <a href="https://www.w3schools.com/icons/icons_reference.asp" target="_blank">Icon for left nav</a>
-* [Markdown commands](https://markdownmonster.west-wind.com/docs/Markdown-Monster-Documentation/An-Introduction-to-Markdown.html) by Markdown Monster
-* [Basic markdown command](https://www.markdownguide.org/basic-syntax/)
+* <a href="https://www.w3schools.com/icons/icons_reference.asp" target="_blank">Icon for left nav</a>  
+* [Markdown commands](https://markdownmonster.west-wind.com/docs/Markdown-Monster-Documentation/An-Introduction-to-Markdown.html) by Markdown Monster  
+* [Basic markdown command](https://www.markdownguide.org/basic-syntax/)  
 ---
 
 ## remove all files in git repo  
@@ -55,8 +54,9 @@ The easiest way to reconnect without running into credential manager caching bug
 ```
 bashgit remote set-url origin https://github.com
 ```
+---
 
-#### ref    
+#### ref  
 
 * [How to Fix GitHub: Invalid username or password](https://www.youtube.com/watch?v=BiPuDyZy74g)
 ---
