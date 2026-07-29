@@ -94,4 +94,19 @@ icacls $env:USERPROFILE/.ssh/id_ed25519 /inheritance:r
 icacls $env:USERPROFILE/.ssh/id_ed25519 /grant:r "$($env:USERNAME):(R)"
 ```
 
+* PowerShell Administrator
+```
+Set-Service -Name ssh-agent -StartupType Automatic
+Start-Service ssh-agent
+```
+```
+ssh-add $env:USERPROFILE\.ssh\id_ed25519
+Enter passphrase for C:\Users\user\.ssh\id_ed25519:
+Identity added: C:\Users\user\.ssh\id_ed25519 (9w2zsh@gmail.com)
+
+ssh -T git@github.com
+Hi 9w2zsh! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+should work on Windows now, as well as WSL  
 
