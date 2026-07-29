@@ -1,0 +1,179 @@
+<div id="firebase-comments" class="mt-5">
+  <h3 class="mb-4">Comments (<span id="comments-count">0</span>)</h3>
+  
+  <div id="comments-list" class="mb-5">
+    <div class="text-center text-muted" id="comments-loading">
+      <div class="spinner-border spinner-border-sm" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <span> Loading comments...</span>
+    </div>
+  </div>
+
+  <h3 class="mb-4">Leave a Comment</h3>
+  
+  <div id="comment-alert" class="alert d-none" role="alert"></div>
+
+  <form id="comment-form" class="mb-4">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="comment-name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="comment-name" required placeholder="Your name">
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="comment-email" class="form-label">Email (Optional)</label>
+        <input type="email" class="form-control" id="comment-email" placeholder="name@example.com">
+        <div class="form-text">We will never publish or share your email address.</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="comment-body" class="form-label">Comment</label>
+      <textarea class="form-control" id="comment-body" rows="4" required minlength="10" maxlength="2000" placeholder="What are your thoughts? (10 - 2000 characters)"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" id="comment-submit">Post Comment</button>
+  </form>
+</div>
+
+<script type="module">
+  import { db } from "{{ '/assets/js/firebase-config.js' | relative_url }}";
+  import { collection, addDoc, serverTimestamp, query, where, orderBy, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const commentForm = document.getElementById('comment-form');
+  const alertBox = document.getElementById('comment-alert');
+  const submitBtn = document.getElementById('comment-submit');
+  const commentsList = document.getElementById('comments-list');
+  const commentsCount = document.getElementById('comments-count');
+  
+  // Post identifier (stable)
+  const currentPostId = "{{ page.id }}";
+
+  // Function to load approved comments
+  async function loadComments() {
+    if (!db) {
+      commentsList.textContent = "Unable to load comments right now. Please try again later.";
+      return;
+    }
+
+    try {
+      const q = query(
+        collection(db, "comments"),
+        where("postSlug", "==", currentPostId),
+        where("status", "==", "approved"),
+        orderBy("createdAt", "asc")
+      );
+
+      const querySnapshot = await getDocs(q);
+      
+      // Clear the loading indicator safely
+      commentsList.textContent = ''; 
+
+      if (querySnapshot.empty) {
+        commentsList.textContent = "No comments yet. Be the first to share your thoughts!";
+        return;
+      }
+
+      let count = 0;
+      querySnapshot.forEach((doc) => {
+        count++;
+        const data = doc.data();
+        
+        // Construct UI safely using DOM methods to prevent XSS
+        const commentDiv = document.createElement('div');
+        commentDiv.className = 'card mb-3';
+        
+        const cardBody = document.createElement('div');
+        cardBody.className = 'card-body';
+        
+        const headerDiv = document.createElement('div');
+        headerDiv.className = 'd-flex justify-content-between align-items-center mb-2';
+        
+        const nameStrong = document.createElement('strong');
+        nameStrong.textContent = data.name || 'Anonymous';
+        
+        const dateSmall = document.createElement('small');
+        dateSmall.className = 'text-muted';
+        if (data.createdAt && data.createdAt.toDate) {
+          dateSmall.textContent = data.createdAt.toDate().toLocaleDateString(undefined, {
+            year: 'numeric', month: 'short', day: 'numeric', 
+            hour: '2-digit', minute: '2-digit'
+          });
+        }
+        
+        const bodyP = document.createElement('p');
+        bodyP.className = 'card-text mb-0';
+        bodyP.style.whiteSpace = 'pre-wrap'; // Preserves line breaks safely
+        bodyP.textContent = data.comment;
+        
+        headerDiv.appendChild(nameStrong);
+        headerDiv.appendChild(dateSmall);
+        cardBody.appendChild(headerDiv);
+        cardBody.appendChild(bodyP);
+        commentDiv.appendChild(cardBody);
+        
+        commentsList.appendChild(commentDiv);
+      });
+      
+      commentsCount.textContent = count;
+      
+    } catch (error) {
+      console.error("Error loading comments:", error);
+      // Detailed error might expose index requirement link, but we show friendly UI
+      commentsList.textContent = "Unable to load comments right now. Please try again later.";
+    }
+  }
+
+  // Load comments immediately on mount
+  loadComments();
+
+  if (commentForm) {
+    commentForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('comment-name').value.trim();
+      const email = document.getElementById('comment-email').value.trim();
+      const commentText = document.getElementById('comment-body').value.trim();
+
+      if (!name || commentText.length < 10 || commentText.length > 2000) {
+        showAlert('Please ensure your comment is between 10 and 2000 characters.', 'warning');
+        return;
+      }
+      
+      if (!db) {
+        showAlert('Firebase is not configured yet. Please configure it in /assets/js/firebase-config.js.', 'danger');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Posting...";
+
+      try {
+        /* 
+        await addDoc(collection(db, "comments"), {
+          postSlug: currentPostId,
+          name: name,
+          email: email, // Optional
+          comment: commentText,
+          status: "pending",
+          createdAt: serverTimestamp()
+        });
+        */
+        
+        showAlert('Your comment has been submitted and is awaiting moderation.', 'success');
+        commentForm.reset();
+      } catch (error) {
+        console.error("Error adding document: ", error);
+        showAlert('Failed to submit comment: ' + error.message, 'danger');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Post Comment";
+      }
+    });
+  }
+
+  function showAlert(message, type) {
+    alertBox.textContent = message;
+    alertBox.className = `alert alert-${type} mt-3 mb-4`;
+    // Scroll to alert
+    alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+</script>

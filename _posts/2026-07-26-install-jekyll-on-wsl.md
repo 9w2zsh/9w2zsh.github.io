@@ -69,3 +69,29 @@ jekyll serve
 
 Your blog should be available at http://localhost:4000
 
+---
+
+## Fix github public key issue
+
+if you cannot sync back to github from AGY
+
+
+* check if the key works in WSL
+```
+ssh -T git@github.com
+```
+
+* if it works, copy the key to windows dir
+```
+mkdir -p /mnt/c/Users/user/.ssh
+cp ~/.ssh/id_ed25519 /mnt/c/Users/user/.ssh/
+cp ~/.ssh/id_ed25519.pub /mnt/c/Users/user/.ssh/
+```
+
+* fix permission in windows
+```
+icacls $env:USERPROFILE/.ssh/id_ed25519 /inheritance:r
+icacls $env:USERPROFILE/.ssh/id_ed25519 /grant:r "$($env:USERNAME):(R)"
+```
+
+

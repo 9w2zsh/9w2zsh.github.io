@@ -11,6 +11,10 @@ order: 5
 
 ---
 
+* [Digital Comics Prompt Generator](https://smcreative.interactivelink.site/E-comicprompter1)
+
+---
+
 ## remove all files in git repo  
 
 * remove all files from git index
