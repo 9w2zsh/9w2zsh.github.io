@@ -98,6 +98,7 @@ order: 4
   </table>
   <h4>File location</h4>
   /var/lib/mmdvm/DMRIds.dat<br>
+  /usr/local/dvs
 </div>
 
 <div id="dmr" class="tab-content" style="display:none;">
