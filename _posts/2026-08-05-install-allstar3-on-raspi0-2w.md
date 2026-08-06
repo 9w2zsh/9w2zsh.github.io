@@ -10,15 +10,15 @@ tags: [allstar]
 
 ---
 ## Tune radio to tx/rx
-sudo simpleusb-tune-menu
-2: adjust accordingly with node 55553
-B: enabled
-G: enabled
-H: ground
-I: usbinvert
-J: no
+sudo simpleusb-tune-menu  
+2: adjust accordingly with node 55553  
+B: enabled  
+G: enabled  
+H: ground  
+I: usbinvert  
+J: no  
 
-remember W to write the config
+remember W to write the config  
 
 ---
 ## Change announce callsign from CW to voice - WIP
