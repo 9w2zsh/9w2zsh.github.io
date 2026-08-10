@@ -34,6 +34,21 @@ CMD=$CMD"/usr/share/asterisk/sounds/en/letters/dot.ulaw "
 CMD=$CMD"/usr/share/asterisk/sounds/en/digits/$x.ulaw "
 ```
 
+## Update: Or use this install from KD4FMU
+[Speak-IP-Address-for-ASL3](https://github.com/KD5FMU/Speak-IP-Address-for-ASL3)  
+* Run this install:
+  ```
+  sudo wget https://raw.githubusercontent.com/KD5FMU/Speak-IP-Address-for-ASL3/refs/heads/main/install-speakip-v1.0.10.sh
+  ```
+* meke it executable
+  ```
+  sudo chmod +x install-speakip-v1.0.10.sh  
+  ```
+* execute the script
+  ```
+  sudo ./install-speakip-v1.0.10.sh  
+  ```
+
 ---
 ## Ref
 ```
