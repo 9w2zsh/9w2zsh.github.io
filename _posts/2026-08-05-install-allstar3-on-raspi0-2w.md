@@ -49,13 +49,13 @@ CMD=$CMD"/usr/share/asterisk/sounds/en/digits/$x.ulaw "
   sudo ./install-speakip-v1.0.10.sh  
   ```
 * how to use:  
-  \*890 = Shutdown AllStar Node
-  \*891 = Reboot AllStar Node
-  \*892 = Speak Local IP address
-  \*893 = Speak Public IP address
+  \*890 = Shutdown AllStar Node  
+  \*891 = Reboot AllStar Node  
+  \*892 = Speak Local IP address  
+  \*893 = Speak Public IP address  
 
 ---
-## Ref
+## Ref  
 ```
-sudo scp -P 222 root@192.168.1.2:/var/lib/asterisk/sounds/digits/*.* .
+sudo scp -P 222 root@192.168.1.2:/var/lib/asterisk/sounds/digits/*.* .  
 ```
