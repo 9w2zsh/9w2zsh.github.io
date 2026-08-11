@@ -1,28 +1,28 @@
 ---
-title: "Setup home media server with Raspberi Pi - **WIP**"
+title: "Setup home media server with Raspberry Pi - **WIP**"
 date: 2026-08-11
 categories: [raspi]
 tags: [media]
 ---
-## Prepare raspi
-* flash sd card
+## Prepare raspi  
+* flash sd card  
 ---
-## Configure Raspi
-* check date
+## Configure Raspi  
+* check date  
   ```
   timedatectl
   ```
-  if the time and date is wrong, fix it
+  if the time and date is wrong, fix it  
   ```
   sudo timedatectl set-timezone Asia/Kuala_Lumpur
   ```
-* check if boot from SD card
+* check if boot from SD card  
   ```
   findmnt -n -o SOURCE,FSTYPE,SIZE /
   ```
-  respond should be
-  /dev/mmcblk0p2 ext4 61G
-* check for amount of space
+  respond should be  
+  /dev/mmcblk0p2 ext4 61G  
+* check for amount of space  
   ```
   df -h /
   ```
@@ -161,5 +161,8 @@ tags: [media]
   5.Test for Fake Drive Capacity:Determine if the flash drive is counterfeit.If the partition drops repeatedly after writing data, test the drive's true capacity using f2fs-tools or f3:Bashsudo apt-get install f3  
   f3write /mnt/usb
   f3read /mnt/usb
+
+  Conclusion:  
+  BAD USB DRIVE
   ```
   
