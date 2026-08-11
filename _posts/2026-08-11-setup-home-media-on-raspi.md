@@ -10,21 +10,21 @@ tags: [media]
 ## Configure Raspi  
 * check date  
   ```
-  timedatectl
+  timedatectl  
   ```
   if the time and date is wrong, fix it  
   ```
-  sudo timedatectl set-timezone Asia/Kuala_Lumpur
+  sudo timedatectl set-timezone Asia/Kuala_Lumpur  
   ```
 * check if boot from SD card  
   ```
-  findmnt -n -o SOURCE,FSTYPE,SIZE /
+  findmnt -n -o SOURCE,FSTYPE,SIZE /  
   ```
   respond should be  
   /dev/mmcblk0p2 ext4 61G  
 * check for amount of space  
   ```
-  df -h /
+  df -h /  
   ```
   repond should be:  
   Filesystem      Size  Used Avail Use% Mounted on  
