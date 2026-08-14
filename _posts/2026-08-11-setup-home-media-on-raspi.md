@@ -5,9 +5,9 @@ categories: [raspi]
 tags: [media]
 ---
 ## Prepare raspi  
-* flash sd card
-  user Raspberry pi imager 1.9.4 or lower
-  don't use root as user
+* flash sd card  
+  user Raspberry pi imager 1.9.4 or lower  
+  don't use root as user  
 ---
 ## Configure Raspi  
 * check date  
