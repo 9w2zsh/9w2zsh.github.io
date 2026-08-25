@@ -1,7 +1,7 @@
 ---
-title: "Setup print server"
+title:"Setup print server"
 categories:[print]
-tags:[print_server,cups,linux]
+tags:[printserver,cups,linux]
 ---
 ## Setup print server on raspberry pi (CUPS)
 * check if print server already running
