@@ -1,5 +1,5 @@
 ---
-title:"Setup print server"
+title: "Setup print server"
 categories:[print]
 tags:[print_server,cups,linux]
 ---
@@ -30,7 +30,7 @@ tags:[print_server,cups,linux]
   ```
   add user ot print admin group
   ```
-  sud usermod -aG lpadmin $USER
+  sudo usermod -aG lpadmin $USER
   ```
   connect printer and verify
   ```
@@ -45,9 +45,9 @@ tags:[print_server,cups,linux]
   cd cnijfilter-*
   sudo ./install.sh
   ```
-* add printer in CUPS
-  Open http://ipaddress:631
-  go to Administration -> add printer, select Canon E400 and complete setup
+* add printer in CUPS  
+  Open http://ipaddress:631  
+  go to Administration -> add printer, select Canon E400 and complete setup  
 * Share printer on network
   ```
   sudo nano /etc/cups/cupsd.conf
@@ -58,17 +58,20 @@ tags:[print_server,cups,linux]
   sudo cupsctl --remote-admin
   sudo systemctl restart cups
   ```
-* PC can setup printer
-  Open Settings> Bluetooth & devices> Printers & scanners
-  Click Add device, then select the Canon E400
-  if not, click Add manually. Select shared printer by name, enter
+* PC can setup printer  
+  Open Settings> Bluetooth & devices> Printers & scanners  
+  Click Add device, then select the Canon E400  
+  if not, click Add manually. Select shared printer by name, enter  
   ```
   https://<ipaddress>:631/printers/Canon_E400_series
   ```
 ---
 ## Print from Apple device
-* From iPhone
-  Open any document, photo, webpage
-  Tab Share
-  Tap Print
-  Tap select printer
+* From iPhone  
+  Open any document, photo, webpage  
+  Tab Share  
+  Tap Print  
+  Tap select printer  
+---
+#### Ref
+* 
