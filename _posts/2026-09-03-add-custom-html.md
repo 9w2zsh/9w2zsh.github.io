@@ -63,8 +63,8 @@ If you want a global script setup but only want the browser to download the scri
   ```
   {% endraw %}
 * Trigger in Post: In the specific blog post where you need the script, declare the variable as true in the top YAML configuration:
-  ```
-  ---yaml
+  ```yaml
+  ---
   layout: post
   title: "Interactive Log Page"
   load_custom_script: true
