@@ -23,6 +23,7 @@ This is the safest approach if you only need the HTML and JavaScript to execute 
   </script>
   ```
 * Include It in Your Markdown: Open your blog post or page .md file and call the file using Jekyll's Liquid tag syntax exactly where you want it to appear:
+  {% raw %}
   ```
   ---
   title: "My Jekyll Post"
@@ -36,6 +37,7 @@ This is the safest approach if you only need the HTML and JavaScript to execute 
   More markdown text follows.
 
   ```
+  {% endraw %}
 
 ---
 ### Method 2: Load External JavaScript Files Globally
@@ -43,19 +45,23 @@ If you have a larger .js file that you want to reference on all posts or multipl
 * Save Your Script: Create a dedicated JavaScript file at assets/js/custom.js.
 * Inject into Layout: Open your site's default layout file, usually found at _layouts/default.html or _includes/head.html.
 * Use the Relative URL Filter: Add the script tag before the closing </head> or </body> tag. Use Jekyll's relative_url filter to prevent broken paths on GitHub project subdirectories:
+  {% raw %}
   ```
   <script src="{{ '/assets/js/custom.js' | relative_url }}"></script>
   ```
+  {% endraw %}
 
 ---
 ### Method 3: Conditional Loading via Front Matter
 If you want a global script setup but only want the browser to download the script file on selected posts, use Front Matter variables.
 * Modify Layout: Open _layouts/post.html or _layouts/default.html and wrap your script tag in a Liquid conditional block:
+  {% raw %}
   ```
   {% if page.load_custom_script %}
   <script src="{{ '/assets/js/custom.js' | relative_url }}"></script>
   {% endif %}
   ```
+  {% endraw %}
 * Trigger in Post: In the specific blog post where you need the script, declare the variable as true in the top YAML configuration:
   ```
   ---
