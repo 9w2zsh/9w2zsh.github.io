@@ -12,14 +12,12 @@ function searchQRZ() {
 
 }
 </script>
-</head>
-<body>
-<table cellpadding="9" border="0" cellspacing="0" style="border:solid 1px #000;background-color:lightblue">
+<table cellpadding="9" border="0" cellspacing="0" style="border:solid 1px #000">
     <tr><td valign="center">
     <b>QRZ callsign lookup:</b>
     <input type="text" id="call" size="8" />
     <button onClick="searchQRZ();">Search</button>
-    <div style="text-align:right;font-size:0.7em">
+    <div style="font-size:0.7em">
 	Callsign lookups provided by <a href="https://www.qrz.com">qrz.com</a>
     </div>
     </td></tr>
