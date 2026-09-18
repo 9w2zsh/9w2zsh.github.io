@@ -54,3 +54,16 @@ If you have a local folder with files that you want to sync with a newly created
   ```bash
   git pull origin main
   ```
+
+---
+### Ref
+Create the repo on github
+```bash
+git init
+git add README.md 
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/<yourname>/<yourrepo>.git
+git push -u origin main
+```
