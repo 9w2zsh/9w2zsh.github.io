@@ -67,6 +67,14 @@ git branch -M main
 git remote add origin https://github.com/<yourname>/<yourrepo>.git
 git push -u origin main
 ```
+Create new branch to work on feature
+```bash
+git checkout main
+git pull origin main
+
+git checkout -b feature/latest-items-first
+git push -u origin feature/latest-items-first
+```
 Merge branch to main
 * Make sure feature branch is pushed
   ```bash
