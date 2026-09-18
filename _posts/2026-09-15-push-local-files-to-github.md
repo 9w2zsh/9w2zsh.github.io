@@ -3,33 +3,54 @@ title: "Push local files to github using CLI"
 categories: [github]
 tags: [dev]
 ---
-## Push Your Local Files via Terminal/Command Prompt
-Open your terminal (Mac/Linux) or Command Prompt/Git Bash (Windows), then run the following commands sequentially
-* Navigate to your local project folder
+To download a Git repository to a local folder for the first time, you should use the git clone command. If you already have the repository on your machine and just want to update it with the latest changes, you use git pull.  
+
+Here is how to do both using the command line:  
+
+###Scenario 1: You are downloading the repository for the first time (Clone)
+This downloads all the project files, commit history, and metadata into a new folder on your computer.
+* Copy the repository URL (from GitHub, GitLab, or Bitbucket).
+* Open your terminal (or Git Bash on Windows).
+* Navigate to the parent folder where you want your project folder to live:
   ```bash
-  cd /path/to/your/local/project
+  cd /path/to/your/parent-folder
   ```
-* Initialize Git in the directory
+* *Run the clone command:
+  ```bash
+  git clone https://github.com/<repo name>
+  ```
+Note: This automatically creates a new folder named after the repository. If you want to clone it into a specific folder with a custom name, add the folder name to the end of the command:
+```bash
+git clone https://github.com my-custom-folder-name
+```
+
+### Scenario 2: You already have the folder and want to get the latest updates (Pull)
+If you already set up the project locally and someone else pushed updates to the remote repository, you use git pull to fetch and merge those changes.
+* Open your terminal.
+* Navigate directly into your existing project folder:
+  ```bash
+  cd /path/to/your/local-repository
+  ```
+* Pull the latest updates:
+  ```bash
+  git pull
+  ```
+
+### Scenario 3: Connecting a pre-existing local folder to a remote repository
+If you have a local folder with files that you want to sync with a newly created, empty Git repository:
+* Open your terminal and navigate to your folder:
+  ```bash
+  cd /path/to/your/local-folder
+  ```
+* Initialize Git in the folder:
   ```bash
   git init
   ```
-* Stage all your files for the upload
-  ```bash
-  git add .
-  ```
-* Commit the files locally
-  ```bash
-  git commit -m "First commit"  
-  ```
-* Rename your default branch to main
-  ```bash
-  bashgit branch -M main
-  ```
-* Link your local repository to GitHub (Replace the URL with your copied GitHub URL)
+* Link it to the remote repository:
   ```bash
   git remote add origin https://github.com
   ```
-* Push your code to GitHub
+* Pull the remote files (like a README or license) to sync them before you make your first commit:
   ```bash
-  git push -u origin main
+  git pull origin main
   ```
