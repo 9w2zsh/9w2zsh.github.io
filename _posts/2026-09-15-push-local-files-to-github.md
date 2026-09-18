@@ -86,3 +86,14 @@ Merge branch to main
   ```bash
   git push origin main
   ```
+Create a Release Tag
+```bash
+git tag v1.3-latest-items-first
+git push origin v1.3-latest-items-first
+```
+Optional Cleanup  
+After confirming everything works on main:
+```bash
+git branch -d feature/latest-items-first
+git push origin --delete feature/latest-items-first
+```
