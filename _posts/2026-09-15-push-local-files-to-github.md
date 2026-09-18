@@ -7,7 +7,7 @@ To download a Git repository to a local folder for the first time, you should us
 
 Here is how to do both using the command line:  
 
-###Scenario 1: You are downloading the repository for the first time (Clone)
+### Scenario 1: You are downloading the repository for the first time (Clone)
 This downloads all the project files, commit history, and metadata into a new folder on your computer.
 * Copy the repository URL (from GitHub, GitLab, or Bitbucket).
 * Open your terminal (or Git Bash on Windows).
