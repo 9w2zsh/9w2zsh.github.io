@@ -97,7 +97,7 @@ Merge branch to main
 * Verify
   ```bash
   git log --oneline --graph --decorate -15
-  ```
+  ```  
 Create a Release Tag
 ```bash
 git tag v1.3-latest-items-first
