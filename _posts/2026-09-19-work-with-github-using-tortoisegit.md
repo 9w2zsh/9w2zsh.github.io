@@ -3,6 +3,7 @@ title: "Work with github using tortoisegit"
 categories: [git]
 tags: [tortoisegit]
 ---
+
 ## Create branch
 To create a new branch using TortoiseGit, you can use the Create Branch dialog directly from your Windows file explorer.  
 Here are the step-by-step instructions:
@@ -16,15 +17,17 @@ Here are the step-by-step instructions:
 * Branch: Type the name of your new branch in the Branch text field.
 * Base: By default, TortoiseGit bases the new branch on your current position (HEAD). If you want to base it on a different branch, tag, or specific commit, you can change it in the "Base" section.
 * Switch to new branch: Check the Switch to new branch/tag checkbox if you want to immediately start working on this new branch.Note: Make sure your current working tree doesn't have uncommitted changes if you plan to switch.
-* Click OK.Step
+* Click OK.
 
-### 3: Push to Remote (Optional)
+### Step 3: Push to Remote (Optional)
 If you need this branch to be available on a remote server like GitHub or GitLab for others to see:
 * Right-click in the folder again.
-* Select TortoiseGit > Push...
-* Ensure the local branch matches your new branch name, and click OK to send it to the remote repository.  
+* Select TortoiseGit > Push...  
+* Ensure the local branch matches your new branch name, and click OK to send it to the remote repository.
+
 ---
-## Merge local folder to github
+
+## Merge local folder to github  
 To merge a feature branch into the main (or master) branch using TortoiseGit, you must first switch to the branch that will receive the changes.  
 Follow these step-by-step instructions to complete the local merge and push it to your remote repository:
 
@@ -49,5 +52,6 @@ Follow these step-by-step instructions to complete the local merge and push it t
 The merge has only happened on your local machine so far. To update your remote repository (like GitHub or GitLab):  
 * Right-click the folder and select TortoiseGit > Push...
 * Ensure the local branch (main) matches the remote destination branch (main).  
-* Click OK to send the code to your server.For further advanced  
+* Click OK to send the code to your server.For further advanced
+
 ---
