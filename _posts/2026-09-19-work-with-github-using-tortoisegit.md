@@ -1,7 +1,7 @@
 ---
-title: "Merge local to github using gittortoise"
+title: "Work with github using tortoisegit"
 categories: [git]
-tags: [gittortoise]
+tags: [tortoisegit]
 ---
 ## Merge local folder to github
 To merge a feature branch into the main (or master) branch using TortoiseGit, you must first switch to the branch that will receive the changes.  
@@ -29,3 +29,4 @@ The merge has only happened on your local machine so far. To update your remote 
 * Right-click the folder and select TortoiseGit > Push...
 * Ensure the local branch (main) matches the remote destination branch (main).
 * Click OK to send the code to your server.For further advanced
+---
