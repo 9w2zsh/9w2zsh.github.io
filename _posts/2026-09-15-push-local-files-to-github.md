@@ -67,3 +67,45 @@ git branch -M main
 git remote add origin https://github.com/<yourname>/<yourrepo>.git
 git push -u origin main
 ```
+Create new branch to work on feature
+```bash
+git checkout main
+git pull origin main
+
+git checkout -b feature/latest-items-first
+git push -u origin feature/latest-items-first
+```
+Merge branch to main
+* Make sure feature branch is pushed
+  ```bash
+  git checkout feature/latest-items-first
+  git push origin feature/latest-items-first
+  ```
+* Switch to main
+  ```bash
+  git checkout main
+  git pull origin main
+  ```
+* Merge feature
+  ```bash
+  git merge feature/latest-items-first
+  ```
+* Push updated main
+  ```bash
+  git push origin main
+  ```
+* Verify
+  ```bash
+  git log --oneline --graph --decorate -15
+  ```  
+Create a Release Tag
+```bash
+git tag v1.3-latest-items-first
+git push origin v1.3-latest-items-first
+```
+Optional Cleanup  
+After confirming everything works on main:
+```bash
+git branch -d feature/latest-items-first
+git push origin --delete feature/latest-items-first
+```
