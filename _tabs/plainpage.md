@@ -4,6 +4,9 @@ icon: fas fa-broadcast-tower
 order: 6
 ---
 
+{% include KesultananPerak.md %}
+
+
 <div class="container">
     <h1>Remove Image Background</h1>
     <label for="apiKey">remove.bg API key</label>
