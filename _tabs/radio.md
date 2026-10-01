@@ -144,7 +144,7 @@ order: 4
   <h1>Hardware</h1>
   <p>I first started digital mode on DMR. My first DMR radio is the Anytone AT878UV with no bluetooth.</p>
   <p>My second digital radio is FT70D which I like it very much due to its simplicity to operated. Finally I got FT5D as my primary radio</p>
-  <p>{% include icom-ic-2720h-csheet.html %}</p>
+  <p>{% include icom-ic-2720h-csheet.md %} </p>
 </div>
 
 <script>
