@@ -1,3 +1,6 @@
+<details markdown="block">
+  <summary>ICOM IC-2720H Programming cheat sheet</summary>
+
 Here is your quick-reference cheat sheet for operating and programming the Icom IC-2720H dual-band mobile transceiver. [1]
 
 ### Essential Front Panel Controls
@@ -51,3 +54,4 @@ To exit: Turn the radio off, then hold down [SET●LOCK] again while turning it 
 ```
 For deeper maintenance troubleshooting or full button map graphics, you can consult the official Icom IC-2720H Manual Download Support page or look through the archived Icom
 
+</details>
