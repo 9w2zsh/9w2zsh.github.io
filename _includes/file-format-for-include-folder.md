@@ -10,8 +10,8 @@ Here is some standard Markdown text that will be included elsewhere.
 * You can even use Liquid variables like {{ site.title }}.
 
 ### Key Rules & Requirements
-• No Front Matter Needed: Standard pages require --- at the top to tell Jekyll to process them. Files inside _includes/ are processed by the calling page instead, so you typically skip the front matter entirely.
-• Liquid Processing: You can pass parameters dynamically into your Markdown include if you want it to be configurable. For example:markdown
+* No Front Matter Needed: Standard pages require --- at the top to tell Jekyll to process them. Files inside _includes/ are processed by the calling page instead, so you typically skip the front matter entirely.
+* Liquid Processing: You can pass parameters dynamically into your Markdown include if you want it to be configurable. For example:markdown
 
 Content passed from the parent page: {{ include.custom_text }}
 
@@ -20,10 +20,12 @@ To pull this file into a layout or another page, call it using the {% include %}
 
 1. Including it as raw Markdown
 If you insert a .md include directly inside another .md file, Jekyll will parse the Markdown normally:
-liquid
+```liquid
 {% include snippet.md %}
+```
 
-2. Including it inside an HTML file / Layout
+3. Including it inside an HTML file / Layout
 If you are calling the .md file inside an .html template (like a footer or layout file), you must run it through the markdownify filter so Jekyll knows to translate the Markdown syntax into HTML tags:
-liquid
+```liquid
 {{ include.snippet.md | markdownify }}
+```
