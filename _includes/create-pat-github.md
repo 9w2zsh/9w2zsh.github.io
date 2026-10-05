@@ -7,9 +7,9 @@ To create a Personal Access Token (PAT) on GitHub, follow these step-by-step ins
 4. In the left sidebar, expand Personal access tokens and select Tokens (classic).
 5. Click the Generate new token dropdown button and select Generate new token (classic).
 6. Configure your token:
-   * Note: Give your token a descriptive name (e.g., Linux-Terminal-Upload).
-   * Expiration: Choose an expiration period (e.g., 30 days or 90 days) for security.
-   * Select scopes: Check the box next to repo (this allows you to pull and push code).
+  * Note: Give your token a descriptive name (e.g., Linux-Terminal-Upload).
+  * Expiration: Choose an expiration period (e.g., 30 days or 90 days) for security.
+  * Select scopes: Check the box next to repo (this allows you to pull and push code).
 8. Scroll to the bottom and click Generate token.
  
 ### Step 2: Copy and Save Your Token
