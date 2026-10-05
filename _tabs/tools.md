@@ -106,6 +106,11 @@ wlan0     Scan completed :
 </details>
 
 <details markdown="block">
+  <summary>Format for files in _include folder.</summary>
+{% include file-format-for-indlude.md %}
+</details>
+
+<details markdown="block">
   <summary>Remove all files in repo</summary>
   
 * remove all files from git index
