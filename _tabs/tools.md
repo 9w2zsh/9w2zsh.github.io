@@ -12,10 +12,9 @@ order: 5
 
 ---
 ## Git commands
-{% include github-command %}
+{% include github-command.md %}
 
 ---
-
 #### ref  
 
 * [How to Fix GitHub: Invalid username or password](https://www.youtube.com/watch?v=BiPuDyZy74g)
