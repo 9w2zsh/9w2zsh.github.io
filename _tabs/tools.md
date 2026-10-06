@@ -96,21 +96,6 @@ wlan0     Scan completed :
 ## Git commands
 
 <details markdown="block">
-  <summary>Upload local directory to github.</summary>
-  {% include upload-local-folder-to-github.md %}
-</details>
-
-<details markdown="block">
-  <summary>Create PAT for ASL608110 asterisk folder.</summary>
-  {% include create-pat-github.md %}
-</details>
-
-<details markdown="block">
-  <summary>Format for files in _include folder.</summary>
-  {% include file-format-for-include-folder.md %}
-</details>
-
-<details markdown="block">
   <summary>Remove all files in repo</summary>
   
   * remove all files from git index
