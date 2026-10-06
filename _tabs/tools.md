@@ -5,10 +5,8 @@ order: 5
 ## Tools
 {% include markdown-command.md %}  
 
-## Linux command
 {% include linux-command.md %}  
 
-## Git commands
 {% include github-command.md %}  
 
 #### ref  
