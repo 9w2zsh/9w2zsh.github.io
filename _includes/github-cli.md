@@ -1,60 +1,58 @@
-1. Install it on Windows
-Recommended: WinGet
+## 1. Install it on Windows
+
+### Recommended: WinGet
 
 Open PowerShell 7 and run:
-
-PowerShell
+```PowerShell
 winget install GitHub.Copilot
+```
 
 GitHub Copilot CLI supports WinGet installation on Windows. You need an active Copilot subscription, and organization-managed accounts require the Copilot CLI policy to be enabled. Windows requires PowerShell 6 or later.
 
 Verify the installation:
-
-PowerShell
+```PowerShell
 copilot --version
+```
 
 If copilot is not recognized, close and reopen PowerShell or VS Code so that the updated PATH is loaded.
 
-Alternative: npm
+### Alternative: npm
 
 If you already have Node.js 22 or later:
-
-PowerShell
+```PowerShell
 npm install -g @github/copilot
-
+```
 The npm package works across platforms and requires Node.js 22 or later.
 
-2. Start Copilot in your project
+## 2. Start Copilot in your project
 
 Move into the project that you want Copilot to examine:
-
-PowerShell
+```PowerShell
 Set-Location C:\Users\SysAdm\Dev
 copilot
-
+```
 On first use, enter:
-
-Plain Text
+```Plain Text
 /login
-
+```
 Follow the displayed authentication instructions. On first launch, GitHub Copilot CLI prompts you to authenticate with /login if you are not already signed in.
 
 You will also be asked whether you trust the current directory. Copilot can potentially read, modify, and execute files within and below that directory, so only trust a folder whose contents you recognize.
 
 For your environment, start narrowly:
-
-PowerShell
+```PowerShell
 Set-Location C:\Users\SysAdm\Dev\MNEReadiness
 copilot
-
+```
 This is safer than starting it at C:\Users\SysAdm, because the working scope is limited to the relevant project tree.
 
-3. Begin with read-only exploration
+## 3. Begin with read-only exploration
 
 Use prompts that explicitly prohibit changes.
 
-Plain Text
+```Plain Text
 Inspect this project in read-only mode.
+```
  
 Do not modify, create, delete, rename, or execute anything.
  
@@ -69,8 +67,9 @@ Cite the file path and relevant line numbers for every finding.
 
 Another useful prompt for your PowerShell framework:
 
-Plain Text
+```Plain Text
 Review all PowerShell scripts in this project without changing anything.
+```
  
 Check for:
 - Windows PowerShell 5.1 compatibility
@@ -86,20 +85,23 @@ Return findings grouped as Critical, Warning, and Informational.
 
 This gives you a baseline before allowing Copilot to touch the code.
 
-4. Ask it to plan before editing
+## 4. Ask it to plan before editing
 
 For controlled QA automation, use a three-stage workflow:
 
-Stage A: Investigate
-Plain Text
+#### Stage A: Investigate
+```Plain Text
 Investigate why LivePreflight is failing.
+```
  
 Do not edit files and do not execute destructive commands.
  
 Use the logs and source code in this workspace to identify the most likely root cause. Show the evidence supporting the diagnosis.
-Stage B: Propose
-Plain Text
+
+#### Stage B: Propose
+```Plain Text
 Propose the smallest possible fix.
+```
  
 List:
 1. Files that would change.
@@ -109,9 +111,11 @@ List:
 5. Validation commands.
  
 Do not make the changes yet.
-Stage C: Implement and validate
-Plain Text
+
+#### Stage C: Implement and validate
+```Plain Text
 Apply only the proposed minimal fix.
+```
  
 Constraints:
 - Do not change unrelated files.
@@ -126,23 +130,25 @@ Constraints:
 
 This matches your normal checkpoint-driven, non-destructive working style.
 
-5. Understand approvals
+## 5. Understand approvals
 
 When Copilot wants to use a tool or command that can modify files or execute something, it asks for approval. You can approve it once or approve that tool for the remainder of the current session.
 
 For your QA environment, I recommend:
 
-Read commands such as Get-Content, Get-ChildItem, and git diff: usually approve individually at first.
-Validation commands such as PowerShell parser checks or Invoke-Pester: approve after reading the complete command.
-File modifications: approve only after reviewing Copilot’s plan.
+* Read commands such as Get-Content, Get-ChildItem, and git diff: usually approve individually at first.
+* Validation commands such as PowerShell parser checks or Invoke-Pester: approve after reading the complete command.
+* File modifications: approve only after reviewing Copilot’s plan.
 Install, uninstall, migration, SQL, mailbox, or Azure commands: never approve automatically.
-Avoid session-wide approval for general-purpose interpreters such as powershell, pwsh, cmd, or python, because later commands could have broader effects.
-6. Useful interactive commands
+* Avoid session-wide approval for general-purpose interpreters such as powershell, pwsh, cmd, or python, because later commands could have broader effects.
+
+## 6. Useful interactive commands
 
 Inside an interactive session:
 
-Plain Text
+```Plain Text
 /help
+```
 
 shows available help and commands.
 
@@ -157,28 +163,33 @@ Up and down arrows navigate prompt history.
 
 Example using a particular file:
 
-Plain Text
+```Plain Text
 @MNEReadiness.json explain every setting and identify which values are permanent configuration versus runtime input
-7. Use it for one-off terminal questions
+```
+
+## 7. Use it for one-off terminal questions
 
 You do not always need an interactive session. The -p option sends one prompt directly:
 
-PowerShell
+```PowerShell
 copilot -p "Explain what this PowerShell repository does. Do not modify anything."
+```
 
 For output intended for a script or variable, -s suppresses additional usage information:
 
-PowerShell
+```PowerShell
 copilot -sp "Explain the difference between a PowerShell terminating and non-terminating error."
+```
 
 The official quickstart documents -p for non-interactive prompts and -s for outputting only Copilot’s response.
 
 Be careful when embedding Copilot into automated scripts. AI output can vary and should not directly trigger installation, deletion, migration, or production administration without deterministic validation and human approval.
 
-8. Practical prompts for your MNE work
+## 8. Practical prompts for your MNE work
 Explain a failure
-Plain Text
+```Plain Text
 Analyze the latest error logs in this workspace.
+```
  
 Do not change files.
  
@@ -189,8 +200,9 @@ For each error:
 - distinguish evidence from assumptions
 - recommend the lowest-risk diagnostic step
 Check configuration consistency
-Plain Text
+```Plain Text
 Compare all PowerShell scripts, JSON files, Markdown documentation, examples, and tests.
+```
  
 Find inconsistent references to:
 - SQL Server instance
@@ -205,8 +217,9 @@ Find inconsistent references to:
  
 Do not edit anything. Return each inconsistency with file name, line number, current value, and expected value.
 Review only the current change
-Plain Text
+```Plain Text
 Review the current git diff only.
+```
  
 Check for:
 - unintended scope expansion
@@ -219,8 +232,9 @@ Check for:
  
 Do not modify the files.
 Generate Pester tests
-Plain Text
+```Plain Text
 Create Pester tests for the changed function only.
+```
  
 Requirements:
 - mock external systems
@@ -230,18 +244,20 @@ Requirements:
 - preserve compatibility with the Pester version used by this repository
  
 Show the proposed test cases before editing.
-9. Recommended daily workflow
-PowerShell
+
+## 9. Recommended daily workflow
+```PowerShell
 Set-Location C:\Users\SysAdm\Dev\<ProjectName>
  
 git status
 git pull
  
 copilot
+```
 
 Then use this opening instruction:
 
-Plain Text
+```Plain Text
 You are assisting with a controlled QA automation repository.
  
 Operating rules:
@@ -255,16 +271,16 @@ Operating rules:
 - Run syntax checks and safe tests after changes.
 - Show git diff and validation results.
 - Stop on unexpected results.
+```
 
 After Copilot finishes:
 
-PowerShell
+```PowerShell
 git status
 git diff
+```
 
 Review every changed line before committing. GitHub Copilot CLI is designed to maintain user control, and its documented workflow includes explicit approval before file-changing or command-execution tools are used.
 
 Official references: Install GitHub Copilot CLI and GitHub Copilot CLI quickstart.
 
-Provide your feedback on BizChat
-Sources
