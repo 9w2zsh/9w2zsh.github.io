@@ -32,9 +32,8 @@ Set-Location C:\Users\SysAdm\Dev
 copilot
 ```
 On first use, enter:
-```Plain Text
 /login
-```
+
 Follow the displayed authentication instructions. On first launch, GitHub Copilot CLI prompts you to authenticate with /login if you are not already signed in.
 
 You will also be asked whether you trust the current directory. Copilot can potentially read, modify, and execute files within and below that directory, so only trust a folder whose contents you recognize.
@@ -50,9 +49,7 @@ This is safer than starting it at C:\Users\SysAdm, because the working scope is 
 
 Use prompts that explicitly prohibit changes.
 
-```Plain Text
 Inspect this project in read-only mode.
-```
  
 Do not modify, create, delete, rename, or execute anything.
  
@@ -67,9 +64,7 @@ Cite the file path and relevant line numbers for every finding.
 
 Another useful prompt for your PowerShell framework:
 
-```Plain Text
 Review all PowerShell scripts in this project without changing anything.
-```
  
 Check for:
 - Windows PowerShell 5.1 compatibility
@@ -90,18 +85,16 @@ This gives you a baseline before allowing Copilot to touch the code.
 For controlled QA automation, use a three-stage workflow:
 
 #### Stage A: Investigate
-```Plain Text
+
 Investigate why LivePreflight is failing.
-```
  
 Do not edit files and do not execute destructive commands.
  
 Use the logs and source code in this workspace to identify the most likely root cause. Show the evidence supporting the diagnosis.
 
 #### Stage B: Propose
-```Plain Text
+
 Propose the smallest possible fix.
-```
  
 List:
 1. Files that would change.
@@ -113,9 +106,8 @@ List:
 Do not make the changes yet.
 
 #### Stage C: Implement and validate
-```Plain Text
+
 Apply only the proposed minimal fix.
-```
  
 Constraints:
 - Do not change unrelated files.
@@ -145,15 +137,11 @@ Install, uninstall, migration, SQL, mailbox, or Azure commands: never approve au
 ## 6. Useful interactive commands
 
 Inside an interactive session:
-
-```Plain Text
 /help
-```
 
 shows available help and commands.
 
 Useful controls include:
-
 / displays slash commands.
 @ mentions files to include in the context.
 Esc cancels the current operation.
@@ -163,9 +151,7 @@ Up and down arrows navigate prompt history.
 
 Example using a particular file:
 
-```Plain Text
 @MNEReadiness.json explain every setting and identify which values are permanent configuration versus runtime input
-```
 
 ## 7. Use it for one-off terminal questions
 
@@ -187,9 +173,8 @@ Be careful when embedding Copilot into automated scripts. AI output can vary and
 
 ## 8. Practical prompts for your MNE work
 Explain a failure
-```Plain Text
+
 Analyze the latest error logs in this workspace.
-```
  
 Do not change files.
  
@@ -199,11 +184,11 @@ For each error:
 - explain the probable root cause
 - distinguish evidence from assumptions
 - recommend the lowest-risk diagnostic step
+
 Check configuration consistency
-```Plain Text
+
 Compare all PowerShell scripts, JSON files, Markdown documentation, examples, and tests.
-```
- 
+
 Find inconsistent references to:
 - SQL Server instance
 - SQL database
@@ -217,9 +202,8 @@ Find inconsistent references to:
  
 Do not edit anything. Return each inconsistency with file name, line number, current value, and expected value.
 Review only the current change
-```Plain Text
+
 Review the current git diff only.
-```
  
 Check for:
 - unintended scope expansion
@@ -231,10 +215,10 @@ Check for:
 - missing Pester coverage
  
 Do not modify the files.
+
 Generate Pester tests
-```Plain Text
+
 Create Pester tests for the changed function only.
-```
  
 Requirements:
 - mock external systems
@@ -257,7 +241,6 @@ copilot
 
 Then use this opening instruction:
 
-```Plain Text
 You are assisting with a controlled QA automation repository.
  
 Operating rules:
