@@ -1,3 +1,6 @@
+<details markdown="block">
+  <summary>Github CLI install and use</summary>
+
 ## 1. Install it on Windows
 
 ### Recommended: WinGet
@@ -267,3 +270,4 @@ Review every changed line before committing. GitHub Copilot CLI is designed to m
 
 Official references: Install GitHub Copilot CLI and GitHub Copilot CLI quickstart.
 
+</details>

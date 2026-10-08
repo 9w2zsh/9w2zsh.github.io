@@ -9,10 +9,7 @@ order: 5
 
 {% include github-command.md %}  
 
-<details markdown="block">
-  <summary>Github CLI install and use</summary>
 {% include github-cli.md %}
-</details>
 
 #### ref  
 * [How to Fix GitHub: Invalid username or password](https://www.youtube.com/watch?v=BiPuDyZy74g)
