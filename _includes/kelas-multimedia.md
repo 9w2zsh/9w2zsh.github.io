@@ -1,8 +1,5 @@
-elas Multimedia
- ·
- ·
+# Kelas Multimedia
 
-Author
 🔥 STEP 1: BUKA GOOGLE VIDS
 Berita baik untuk peniaga online dan content creator!
 Google dah perkenalkan Gemini Omni 1.1 Flash dalam Google Vids.
@@ -26,16 +23,7 @@ Google Vids juga menyokong:
 ✅ Scene extension
 ✅ Export MP4
 Jom kita cuba hasilkan iklan produk dengan 3 scene.
-ACCOUNTS.GOOGLE.COM
-Google Vids: Sign-in
-Google Vids: Sign-in
-Reply
-Edited
-Kelas Multimedia
- ·
- ·
 
-Author
 🎬 STEP 2: PROMPT #1
 PRODUCT CINEMATIC REVEAL
 Mula-mula, kita nak jadikan gambar produk biasa nampak macam iklan premium.
@@ -56,12 +44,7 @@ Pilih ratio:
 📱 9:16 untuk Reels/TikTok
 🖥️ 16:9 untuk YouTube
 Klik Generate.
-Reply
-Kelas Multimedia
- ·
- ·
 
-Author
 🎬 STEP 3: PROMPT #2
 PRODUCT DEMONSTRATION
 Video iklan tak cukup kalau produk cuma berpusing cantik.
@@ -95,10 +78,7 @@ Tip: Pilih satu tindakan utama sahaja untuk setiap video 8 saat.
 Lebih mudah nak dapat visual yang kemas.
 Reply
 Kelas Multimedia
- ·
- ·
 
-Author
 🎬 STEP 4: PROMPT #3
 PRODUCT CLOSING + CTA
 Sekarang kita nak hasilkan scene terakhir.
@@ -120,12 +100,7 @@ Output: 8-second cinematic closing shot, premium commercial quality, 1080p when 
 Kenapa kita tak suruh AI terus tulis headline dan CTA?
 Sebab lebih mudah kawal ejaan, font, saiz dan kedudukan teks apabila kita tambah sendiri dalam editor Google Vids.
 Hasilnya juga lebih mudah nak ubah untuk iklan yang berlainan.
-Reply
-Kelas Multimedia
- ·
- ·
 
-Author
 🎞️ STEP 5: GABUNGKAN 3 VIDEO
 Sekarang anda dah ada 3 scene:
 1️⃣ Product Reveal
@@ -153,12 +128,7 @@ Anda juga boleh laraskan tempoh scene dan gunakan scene extension jika ciri ters
 Tip saya:
 Jangan letak terlalu banyak teks.
 Satu mesej utama untuk setiap scene dah cukup supaya penonton mudah faham.
-Reply
-Kelas Multimedia
- ·
- ·
 
-Author
 📥 STEP 6: EXPORT VIDEO 1080P
 Dah puas hati dengan hasilnya?
 Google Vids kini menyokong AI video generation 1080p menggunakan Gemini Omni 1.1 Flash.
@@ -179,12 +149,7 @@ Boleh upload ke:
 Pastikan ratio video sesuai dengan platform.
 Sebelum publish, semak semula logo, tulisan pada packaging dan fungsi produk.
 AI kadang-kadang boleh mengubah butiran kecil walaupun kita dah beri reference image.
-Reply
-Kelas Multimedia
- ·
- ·
 
-Author
 ⚠️ PENTING: ADA HAD PERCUMA!
 Jangan salah faham.
 Percuma bukan bermaksud unlimited.
