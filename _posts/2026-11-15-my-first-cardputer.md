@@ -8,4 +8,4 @@ tags: [raspberrypi,linux]
 Rizal gave me one out of two Cardputer Zero that "we" bought. He give me the honor to get the first one as a present after I pass my Class A Amateur Radio exam
 
 ## Step 1: Clone the SD card
-{include clone-cardputer-sd-card.md}
+{% include clone-cardputer-sd-card.md %}
