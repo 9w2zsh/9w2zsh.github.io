@@ -10,13 +10,13 @@
 
 This plan is grounded in the supplied materials:
 
-- [QA automation archive](README-automatedqa.zip): PowerShell/Pester environment, installation, console, UI workflow, and migration checks.
-- [Installation archive](README-mneInstall.zip): installation lifecycle, preflight, existing-installation handling, and database cleanup safeguards.
-- [Email generator archive](README-createEmail.zip): synthetic messages, regular attachments, and Notes rich-text/OLE embedded objects.
-- [Mailbox generator archive](README-generateNotesMailbox.zip): synthetic attachment manifests and controlled Notes document generation, with significant bulk-generation limitations.
-- [Mailbox reset script](EraseEmail/Erase-MailboxEmail.ps1): destructive Microsoft 365 email cleanup; not a general-purpose calendar/contact/task reset.
+- QA automation archive: PowerShell/Pester environment, installation, console, UI workflow, and migration checks.
+- Installation archive: installation lifecycle, preflight, existing-installation handling, and database cleanup safeguards.
+- Email generator archive: synthetic messages, regular attachments, and Notes rich-text/OLE embedded objects.
+- Mailbox generator archive: synthetic attachment manifests and controlled Notes document generation, with significant bulk-generation limitations.
+- Mailbox reset script: destructive Microsoft 365 email cleanup; not a general-purpose calendar/contact/task reset.
 
-The workspace does not supply the 4.18.1.1 release notes, official support matrix, installer, or approved customer workload limits. Consequently:
+The workspace does not include the 4.18.1.1 release notes, official support matrix, installer, or approved customer workload limits. Consequently:
 
 1. Obtain release notes, changed components, fixed-defect IDs, known issues, supported upgrade paths, and the official 4.18.1.1 system requirements before signing off.
 2. The supplied scripts' host requirements are **not** evidence of product platform support.
@@ -239,7 +239,7 @@ Installation and migration require separate, explicit approval and the relevant 
 
 ### Confirmed gaps to close manually or with additional QA assertions
 
-- The supplied workflow test's result assertion checks only whether target Inbox count is at least a configured minimum. It does not prove complete migration, attachment integrity, correct mapping, folder accuracy, or absence of duplicates.
+- The supplied workflow test only asserts that the target Inbox count is at least a configured minimum. It does not prove complete migration, attachment integrity, correct mapping, folder accuracy, or absence of duplicates.
 - Migration tests can be skipped when execution is disabled. The runner reports success when failed count is zero even if tests were skipped. **A green exit code with skipped mandatory cases is not an acceptance pass.**
 - UI discovery/readiness does not prove that a project was actually saved or a connection authenticated. Verify effective persistence and operations.
 - Existing configuration/examples reference an earlier build. Discover/verify locators and version paths against 4.18.1.1; do not reuse dynamic window handles.
