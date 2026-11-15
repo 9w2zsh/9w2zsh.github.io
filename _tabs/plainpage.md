@@ -6,6 +6,8 @@ order: 6
 
 {% include KesultananPerak.md %}
 
+{% include qa-test-plan.md %}
+
 
 <div class="container">
     <h1>Remove Image Background</h1>
